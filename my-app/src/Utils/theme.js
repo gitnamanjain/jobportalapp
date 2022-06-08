@@ -1,22 +1,23 @@
 import { createMuiTheme } from "@material-ui/core";
 
 export default createMuiTheme({
-    palette:{
-        primary:{
-            main:'#2557a7'
-           
+    palette: {
+        primary: {
+            main: "#127c71",
         },
-        secondary:{
-           
-            main:'#fff'
-        }
+        secondary: {
+            main: "#fff",
+        },
     },
-    typography:{
-        h6:{
-            fontSize:14
+    typography: {
+        fontFamily: ["Manrope", "sans-serif"].join(","),
+    },
+    typography: {
+        h6: {
+            fontSize: 14,
         },
-        h5:{
-            fontWeight:'bold'
-        }
-    }
-})
+        h5: {
+            fontWeight: "bold",
+        },
+    },
+});
