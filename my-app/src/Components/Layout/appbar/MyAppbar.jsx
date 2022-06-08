@@ -4,10 +4,13 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styles from "./MyAppbar.module.css";
 import UserMenu from "./UserMenu";
+
 export default function MyAppbar() {
+  const { isAuth } = useSelector((state) => state.login);
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>
@@ -19,14 +22,14 @@ export default function MyAppbar() {
                   sx={{ fontWeight: "bold" }}
                   className={styles.typography}
                 >
-                  <Link to="/login">
+                  <Link to="/">
                     <BusinessCenterIcon
                       fontSize="large"
                       style={{ color: "#127c71" }}
                     ></BusinessCenterIcon>
                   </Link>
                 </Typography>
-                <Link style={{ textDecoration: "none" }} to="/">
+                <Link style={{ textDecoration: "none" }} to="/viewjobs">
                   <Typography
                     sx={{ fontWeight: "bold", fontSize: "1.2rem" }}
                     className={styles.typography}
@@ -45,7 +48,13 @@ export default function MyAppbar() {
               </Box>
             </Box>
             <Box className={styles.header_right}>
-              <UserMenu></UserMenu>
+              {(() => {
+                if (isAuth) {
+                  return <UserMenu></UserMenu>;
+                } else {
+                  return <Link to="/login">Login</Link>;
+                }
+              })()}
             </Box>
           </Toolbar>
         </AppBar>
