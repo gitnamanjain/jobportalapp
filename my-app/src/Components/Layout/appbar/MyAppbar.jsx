@@ -14,7 +14,7 @@ export default function MyAppbar() {
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar elevation={0} style={{ background: "white" }} position="fixed">
+        <AppBar elevation={0} style={{ background: "white" , overflow:"auto" }} position="fixed">
           <Toolbar className={styles.toolbar}>
             <Box className={styles.header_left}>
               <Box className={styles.link}>

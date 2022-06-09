@@ -20,7 +20,7 @@ function Home(props) {
                 Hire From Here
             </div>
             {/* <RecentSearch /> */}
-            <h3 style={{marginTop:"40px"}}>RecentSearch</h3>
+            {/* <h3 style={{marginTop:"40px"}}>RecentSearch</h3> */}
         </div>
     );
 }

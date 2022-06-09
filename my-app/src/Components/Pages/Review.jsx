@@ -26,11 +26,13 @@ export function Review(props) {
   const id = query.get("id");
   const dispatch = useDispatch();
   const { isAuth } = useSelector((state) => state.login);
+
+  
   useEffect(() => {
     dispatch(getCompanyReviews(id));
 
     axios
-      .get(`https://indeed-mock-server.herokuapp.com/reviews?company_id=${id}`)
+      .get(`https://job-api-jayesh-deploy.herokuapp.com/reviews?company_id=${id}`)
       .then((res) => {
         setReviews(res.data);
       })

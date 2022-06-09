@@ -11,7 +11,7 @@ import { ApplyModal } from './JobApplyModal/ApplyModal';
 
 const container ={
         position:'sticky',
-        top:'20px',
+        top:'90px',
         marginLeft:'20px',
         marginRight:'-40px',
         alignSelf: 'flex-start',
@@ -78,9 +78,9 @@ function JobDescription({jobData}) {
             <Typography variant={'h5'} style={{marginBottom:'10px'}}>
                 {jobTitle}
             </Typography>
-            {/* <Box style={{marginBottom:'10px'}}>
+            <Box style={{marginBottom:'10px'}}>
                 {companyName},{location}
-            </Box> */}
+            </Box>
             
             {/* <Box style={{marginBottom:'10px'}}>
                 ₹ {Number(startSalary).toLocaleString('en-IN')} - ₹ {Number(endSalary).toLocaleString('en-IN')}

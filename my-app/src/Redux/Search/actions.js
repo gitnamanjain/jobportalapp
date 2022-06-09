@@ -40,18 +40,17 @@ export const setCurrentPage = payload=>{
 }
 
 
-export const addJobs = (payload) => (dispatch) => {
-  var config = {
-    method: "post",
-    url: `${base_url}/jobs`,
-    headers: {
-      "Content-Type": "application/json",
-    },
-    data: payload,
-  };
-
-  axios(config).then((res) => res.data);
-};
+// export const addJobs = (payload) => (dispatch) => {
+//   var config = {
+//     method: "post",
+//     url: `${base_url}/jobs`,
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     data: payload,
+//   };
+//   axios(config).then((res) => res.data);
+// };
 
 
 
