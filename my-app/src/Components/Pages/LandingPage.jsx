@@ -8,11 +8,11 @@ const LandingPage = () => {
 
   return (
     <>
-      {(() => {
+      {/* {(() => {
         if (!isAuth) {
           return <MyAppbar></MyAppbar>;
         }
-      })()}
+      })()} */}
       <Link to="/loginmain">Go to the login page</Link>
     </>
   );

@@ -37,3 +37,8 @@ https://job-api-jayesh-deploy.herokuapp.com/
 
 search:
 https://job-api-jayesh-deploy.herokuapp.com/jobs?location_like=mum&_page=1&_limit=10
+
+both:
+
+https://job-api-jayesh-deploy.herokuapp.com/jobs?location_like=ban&jobTitle_like=dev&_page=1&_limit=5
+

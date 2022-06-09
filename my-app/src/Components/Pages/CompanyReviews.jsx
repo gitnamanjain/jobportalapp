@@ -55,7 +55,7 @@ export function CompanyReviews() {
 
   return isAuth ? (
     
-      <Container className="container" maxWidth="xl">
+      <Container className="container" maxWidth="xl" style={{marginTop:"75px"}}>
         <Grid container className="boxSearch">
           <img src={ban} className="banimg" alt="banner"></img>
         </Grid>

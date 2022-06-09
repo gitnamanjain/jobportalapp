@@ -14,7 +14,7 @@ export default function MyAppbar() {
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar elevation={0} style={{ background: "white" }} position="static">
+        <AppBar elevation={0} style={{ background: "white" }} position="fixed">
           <Toolbar className={styles.toolbar}>
             <Box className={styles.header_left}>
               <Box className={styles.link}>
@@ -29,6 +29,7 @@ export default function MyAppbar() {
                     ></BusinessCenterIcon>
                   </Link>
                 </Typography>
+
                 <Link style={{ textDecoration: "none" }} to="/viewjobs">
                   <Typography
                     sx={{ fontWeight: "bold", fontSize: "1.2rem" }}
@@ -39,22 +40,28 @@ export default function MyAppbar() {
                 </Link>
                 <Link style={{ textDecoration: "none" }} to="/companies">
                   <Typography
-                    sx={{ fontSize: "1.2rem" }}
+                    // sx={{ fontSize: "1.2rem" }}
+                    sx={{ fontWeight: "bold", fontSize: "1.2rem" }}
                     className={styles.typography}
                   >
                     Company Reviews
                   </Typography>
                 </Link>
+
               </Box>
             </Box>
             <Box className={styles.header_right}>
-              {(() => {
+
+              {/* {(() => {
                 if (isAuth) {
-                  return <UserMenu></UserMenu>;
+                  return <UserMenu/>;
                 } else {
                   return <Link to="/login">Login</Link>;
                 }
-              })()}
+              })()} */}
+
+              { isAuth ? <UserMenu/> : <Link to="/login">Login</Link>}
+              
             </Box>
           </Toolbar>
         </AppBar>

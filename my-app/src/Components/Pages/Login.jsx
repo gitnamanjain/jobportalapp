@@ -4,8 +4,9 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import { makeLoginRequest } from "../../Redux/Login/actions";
-import MyAppbar from "../Layout/appbar/MyAppbar";
+// import MyAppbar from "../Layout/appbar/MyAppbar";
 import styles from "./Login.module.css";
+import MyAppbar from './../Layout/appbar/MyAppbar';
 
 export function Login() {
   const { isAuth, isLoading } = useSelector((state) => state.login);
@@ -28,6 +29,7 @@ export function Login() {
 
   return !isAuth ? (
     <>
+    <MyAppbar/>
       <div className={styles.box}>
         <div className={styles.login_container}>
           <div className={styles.login_form_container}>

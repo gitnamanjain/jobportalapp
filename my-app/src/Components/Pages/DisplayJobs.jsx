@@ -102,7 +102,8 @@ function DisplayJobs(props) {
     
 
     return (
-        <div className="job_section">
+        <>
+        <div className="job_section" >
             <Box style={{transform:"scale(0.8) translateX(-12%)"}}>
                 <SearchForm />
             </Box>
@@ -170,6 +171,7 @@ function DisplayJobs(props) {
             }
             
         </div>
+        </>
     );
     
 }

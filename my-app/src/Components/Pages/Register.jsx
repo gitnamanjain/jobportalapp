@@ -7,6 +7,7 @@ import { Box, FormHelperText, FormControlLabel, Checkbox } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { makeRegisterRequest } from '../../Redux/Register/actions';
+import MyAppbar from '../Layout/appbar/MyAppbar';
 
 
 
@@ -46,7 +47,7 @@ export function Register() {
     return !isAuth ?
     <Container className = "container" maxWidth = "xl">
         <Box className = "boxImg">
-
+            <MyAppbar/>
         </Box>
         <Box className = "boxForm">
             <Grid container spacing = {3} >
@@ -81,7 +82,7 @@ export function Register() {
         </Box>
         <Grid container spacing = {3} style = {{ flexDirection : "column", alignContent: "center", margin: "20px 0", color: "#085ff7"}}>
             <Grid item>
-                <Typography variant = "body2" component={Link} to="/loginmain" style = {{cursor: "pointer",color: "#085ff7"}}>
+                <Typography variant = "body2" component={Link} to="/login" style = {{cursor: "pointer",color: "#085ff7"}}>
                     Have an account? Sign in
                 </Typography>
             </Grid>

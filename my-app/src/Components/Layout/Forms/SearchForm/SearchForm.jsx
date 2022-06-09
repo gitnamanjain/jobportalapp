@@ -73,6 +73,7 @@ function SearchForm(props) {
 
     return (
         (<>
+        <div style={{width:"100%" , height:"90px"}}></div>
             { error ? <Box>Query is Empty</Box> : <></> }
             <form  onSubmit={handleSearch} className="searchForm" style={{width:"60%", marginLeft:"auto", marginRight:"auto"}}>
                 <Grid container spacing={1}>
