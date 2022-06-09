@@ -5,10 +5,28 @@ video {
   position: fixed;
   z-index: -1;
 }
+.green_btn {
+  border: none;
+  outline: none;
+  padding: 12px 0;
+  background-color: #1b263b;
+  border-radius: 20px;
+  width: 180px;
+  font-weight: bold;
+  font-size: larger;
+  cursor: pointer;
+}
+
+.green_btn {
+  color: white;
+  /* margin: 10px; */
+}
 
 .hero-container {
   /* background: url('/images/img-home.jpg') center center/cover no-repeat; */
-  height: 100vh;
+  height: 90vh;
+  margin-top: 10vh;
+  padding-top: 10vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -28,8 +46,8 @@ video {
   margin-top: 8px;
   color: #fff;
   font-size: 32px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 .hero-btns {

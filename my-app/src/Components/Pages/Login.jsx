@@ -63,7 +63,7 @@ export function Login() {
                 </div>
                 <Button
                   type="submit"
-                  className="button"
+                  className={styles.green_btn}
                   variant="contained"
                   disabled={isLoading}
                 >

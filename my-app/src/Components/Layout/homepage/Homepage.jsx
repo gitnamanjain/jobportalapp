@@ -8,7 +8,6 @@ import HeroSection from "./HeroSection";
 function Homepage() {
   return (
     <>
-      {/* <MyAppbar></MyAppbar> */}
       <HeroSection />
       <Cards />
       <Footer></Footer>

@@ -1,84 +1,72 @@
-.container{
-    background-color: #f2f2f2;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.container {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* .company{
-    margin: 0%;
-    background-color: yellow;
-} */
-
-.boxSearch{
-    background-color: white;
-    margin: 0; 
-    height: 250px;
-    /* background-size: 450px 250px;
-    background-position: bottom right;
-    background-image: url(../Images/banner.jpg);
-    background-repeat: no-repeat;
-    background-position: center; */
+.boxSearch {
+  background-color: white;
+  margin: 0;
+  height: 250px;
 }
 
-.banimg{
-    width: 380px;
-    /* height: 250px; */
-    margin-left: auto;
-    margin-right: auto;
+.banimg {
+  width: 380px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.outerSearchGrid{
-    margin-top: 50px;
-    flex-direction: column;
-    align-content: flex-end;
+.outerSearchGrid {
+  margin-top: 50px;
+  flex-direction: column;
+  align-content: flex-end;
 }
 
-.h3{
-    font-weight: bold;
-    margin-bottom: 20px;
+.h3 {
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
-.h5{
-    color: #6f78a5;
-    font-weight: 400;
-    margin-bottom: 70px;
+.h5 {
+  color: #6f78a5;
+  font-weight: 400;
+  margin-bottom: 70px;
 }
 
-.outlinedInput{
-    border: 2px solid white;
-    border-radius: 10px;
-    width: 450px;
+.outlinedInput {
+  border: 2px solid white;
+  border-radius: 10px;
+  width: 450px;
 }
 
-.formhelperText{
-    color: #085ff7;
-    padding-left: 20px;
-    cursor: pointer;
+.formhelperText {
+  color: #085ff7;
+  padding-left: 20px;
+  cursor: pointer;
 }
 
-.companiesHiring{
-    margin-top: 50px;
-    margin-bottom: 20px;
-    background-color: white;
-    display: flex;
+.companiesHiring {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  background-color: white;
+  display: flex;
 }
 
-.company{
-    background-color: #F0F0F0;
+.company {
+  background-color: #f0f0f0;
 }
 
-.ftext{
-    text-align: center;
-    padding: 5px;
-    font-size: 40px;
-    /* fontFamily: 'Comfortaa cursive' */
-    font-family: 'Comfortaa cursive';
+.ftext {
+  text-align: center;
+  padding: 5px;
+  font-size: 40px;
+
+  font-family: "Comfortaa cursive";
 }
 
 @media only screen and (max-width: 600px) {
-    .ftext {
-      font-size: 4vh;
-    }
+  .ftext {
+    font-size: 4vh;
   }
+}

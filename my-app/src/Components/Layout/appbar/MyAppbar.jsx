@@ -41,27 +41,27 @@ export default function MyAppbar() {
                 <Link style={{ textDecoration: "none" }} to="/companies">
                   <Typography
                     // sx={{ fontSize: "1.2rem" }}
-                    sx={{ fontWeight: "bold", fontSize: "1.2rem" }}
+                    sx={{ fontSize: "1.2rem" }}
                     className={styles.typography}
                   >
                     Company Reviews
                   </Typography>
                 </Link>
-
               </Box>
             </Box>
             <Box className={styles.header_right}>
-
-              {/* {(() => {
-                if (isAuth) {
-                  return <UserMenu/>;
-                } else {
-                  return <Link to="/login">Login</Link>;
-                }
-              })()} */}
-
-              { isAuth ? <UserMenu/> : <Link to="/login">Login</Link>}
-              
+              {isAuth ? (
+                <UserMenu />
+              ) : (
+                <Link to="/login">
+                  <Typography
+                    sx={{ fontSize: "1.2rem" }}
+                    className={styles.typography}
+                  >
+                    Login
+                  </Typography>
+                </Link>
+              )}
             </Box>
           </Toolbar>
         </AppBar>

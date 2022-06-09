@@ -12,13 +12,7 @@ function HeroSection() {
       <p>What are you waiting for?</p>
       <div className="hero-btns">
         <Link style={{ textDecoration: "none" }} to="/viewjobs">
-          <div
-            className="btns"
-            buttonStyle="btn--outline"
-            buttonSize="btn--large"
-          >
-            GET STARTED
-          </div>
+          <button className="green_btn">Get Started</button>
         </Link>
       </div>
     </div>
