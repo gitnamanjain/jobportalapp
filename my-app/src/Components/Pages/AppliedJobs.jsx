@@ -1,18 +1,16 @@
 import { Box, Button, Container, Typography } from '@mui/material';
-import { styled } from '@mui/material/styles';
+// import { styled } from '@mui/material/styles';
 import React, { useReducer, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { timeDifference } from '../../Utils/timeDifference';
+// import { timeDifference } from '../../Utils/timeDifference';
 import {makeApplyRequest} from "../../Redux/JobApply/actions"
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import Slide from '@mui/material/Slide';
-     
-        
+// import Slide from '@mui/material/Slide';
 
 function AppliedJobs(props) {
 

@@ -5,12 +5,12 @@ import AppliedJobs from "../Components/Pages/AppliedJobs";
 import DisplayJobs from "../Components/Pages/DisplayJobs";
 import Home from "../Components/Pages/Home";
 import { Login } from "../Components/Pages/Login";
-import PostJob from "../Components/Pages/PostJob";
+// import PostJob from "../Components/Pages/PostJob";
 import { Register } from "../Components/Pages/Register";
 import { Review } from "../Components/Pages/Review";
 import SavedJobs from "../Components/Pages/SavedJobs";
 import PrivateRoute from "./PrivateRoute";
-import LandingPage from "../Components/Pages/LandingPage.jsx";
+// import LandingPage from "../Components/Pages/LandingPage.jsx";
 import Homepage from "../Components/Layout/homepage/Homepage";
 import MyAppbar from "../Components/Layout/appbar/MyAppbar";
 

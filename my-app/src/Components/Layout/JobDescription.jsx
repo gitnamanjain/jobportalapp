@@ -82,14 +82,14 @@ function JobDescription({jobData}) {
                 {companyName},{location}
             </Box>
             
-            {/* <Box style={{marginBottom:'10px'}}>
+            <Box style={{marginBottom:'10px'}}>
                 ₹ {Number(startSalary).toLocaleString('en-IN')} - ₹ {Number(endSalary).toLocaleString('en-IN')}
-            </Box> */}
-            {/* {ignored ? null : null} */}
-            {/* <Button className="link" style={link} onClick={()=>handleOpen(jobkey)} disabled={applied_job[jobkey]?true:false} >
+            </Box>
+         
+            <Button className="link" style={link} onClick={()=>handleOpen(jobkey)} disabled={applied_job[jobkey]?true:false} >
                 {applied_job[jobkey]?'Applied':'Apply Now'}
-            </Button> */}
-            {/* <Section jobDescription={jobDescription} summary={snippet} /> */}
+            </Button>
+            <Section jobDescription={jobDescription} summary={snippet} />
             <ApplyModal 
                     open={open}
                     handleClose = {()=>handleClose()}
