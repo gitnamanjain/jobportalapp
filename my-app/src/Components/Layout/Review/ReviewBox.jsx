@@ -14,7 +14,7 @@ export function ReviewBox({ rating, job_position, date, title, description }) {
                     <Typography variant = "body2" style = {{fontWeight: "600"}}>{job_position}</Typography>
                     <Typography variant = "h6">
                         {rating}
-                        <StarIcon fontSize="small" style = {{color: "#9d2b6b"}} />
+                        <StarIcon fontSize="small" style = {{color: "#127C71", paddingLeft:"5px"}} />
                         <Typography variant = "caption" > on {date}</Typography>
                     </Typography>
                 </Grid>

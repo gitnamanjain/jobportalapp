@@ -42,7 +42,7 @@ export function Review(props) {
   return isAuth ? (
     companyDetails ? (
       <div>
-        <Container maxwidth="xl" style={{ marginTop: "100px" }}>
+        <Container style={{ width:"1020px", marginTop: "100px" }}>
           <Grid
             container
             style={{
@@ -64,29 +64,21 @@ export function Review(props) {
                 <Typography variant="h5">
                   {companyDetails.ratings}
                   <StarIcon
-                    style={{ color: "#9d2b6b", paddingRight: "10px" }}
+                    style={{ color: "#127C71", paddingRight: "7px" }}
                   />
                   <Typography variant="caption">
-                    {reviews.length} reviews
+                    {reviews.length} Reviews
                   </Typography>
                 </Typography>
               </Grid>
             </Grid>
           </Grid>
-          <Grid container style={{ height: "40px" }}>
-            <Grid item className="optionTab" style={optionTab}>
-              About the company
-            </Grid>
-            <Grid item className="optionTab" style={optionTab}>
-              {reviews.length} Reviews
-            </Grid>
-          </Grid>
-          <Grid item style={{ marginTop: "20px", marginBottom: "50px" }}>
+          <Grid item style={{ marginTop: "20px", marginBottom: "20px" }}>
             <Typography variant="h4">
               <b>About the company</b>
             </Typography>
           </Grid>
-          <Grid container style={{ justifyContent: "center", padding: "10px" }}>
+          <Grid container style={{ justifyContent: "center"}}>
             <Typography
               variant="body2"
               style={{ color: "#767676", textAlign: "left" }}

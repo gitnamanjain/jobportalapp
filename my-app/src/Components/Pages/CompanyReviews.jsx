@@ -11,7 +11,6 @@ import {
 import Bossbaby from "../Layout/bossbaby/Bossbaby";
 import { CompanyBox } from "../Layout/Companies/CompanyBox";
 import "./css/companyReviews.style.css";
-
 export function CompanyReviews() {
   const [companies, setCompanies] = useState([]);
   const [query, setQuery] = useState("");
@@ -97,4 +96,5 @@ export function CompanyReviews() {
   ) : (
     <div to="/review" />
   );
+
 }

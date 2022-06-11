@@ -59,7 +59,7 @@ function AppliedJobs(props) {
                     </Typography>
                     <ul style={{display:'flex',marginBottom:'20px'}}>
                         <NavLink to="/savedjobs" activeStyle={{
-                            color:"#0145E3",
+                            color:"#127c71",
                             textDecoration:'underline'
                         }}
                         style={{
@@ -71,7 +71,7 @@ function AppliedJobs(props) {
                         </NavLink>
                         <NavLink to="/appliedjobs"
                         activeStyle={{
-                            color:"#0145E3",
+                            color:"#127c71",
                             textDecoration:'underline'
                         }}
                         style={{
@@ -90,7 +90,7 @@ function AppliedJobs(props) {
                                 applied.map((key)=>{
                                     return (
                                         <>
-                                        <Box style={{display:'flex'}}   key={key} >
+                                        <Box style={{display:'flex',border:"1px solid black",borderRadius:"10px",padding:"20px",}}   key={key} >
                                         
                                             <Box style={{width:'500px'}}>
                                                 <Typography variant='h5' style={{fontSize:'18px',marginBottom:'15px'}}> 

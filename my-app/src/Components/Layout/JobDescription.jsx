@@ -79,7 +79,7 @@ function JobDescription({jobData}) {
                 {jobTitle}
             </Typography>
             <Box style={{marginBottom:'10px'}}>
-                {companyName},{location}
+                {companyName}, {location}
             </Box>
             
             <Box style={{marginBottom:'10px'}}>

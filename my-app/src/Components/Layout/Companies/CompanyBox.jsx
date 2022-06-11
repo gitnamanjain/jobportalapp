@@ -7,8 +7,8 @@ export function CompanyBox({ logo, rating, name, handleClick, id }) {
     <Grid
       item
       container
-      spacing={1}
-      md={4}
+      spacing={0}
+      md={3}
       sm={6}
       xs={12}
       style={{
@@ -16,6 +16,7 @@ export function CompanyBox({ logo, rating, name, handleClick, id }) {
         border: "1px solid #C8C8C8",
         padding: "15px",
         borderRadius: "5px",
+        margin:"5px",
       }}
     >
       <Grid item>
@@ -44,14 +45,14 @@ export function CompanyBox({ logo, rating, name, handleClick, id }) {
           md={12}
           sm={12}
           xs={12}
-          style={{ marginTop: "15px" }}
+          style={{ marginTop: "15px", display: "flex", alignItems: "center" }}
         >
           <Grid item lg={6} md={6} sm={6} xs={6}>
             {rating}
-            <StarIcon style={{ color: "#9d2b6b" }} />
+            <StarIcon style={{ color: "#127C71" , paddingTop:"7px"}} />
           </Grid>
           <Grid item lg={6} md={6} sm={6} xs={6}>
-            4 reviews
+            4 Reviews
           </Grid>
         </Grid>
       </Grid>

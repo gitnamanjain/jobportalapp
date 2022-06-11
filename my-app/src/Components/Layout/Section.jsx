@@ -65,6 +65,7 @@ export default class Section extends React.Component {
     return (
       <div>
           <Element name="test7" className="element" id="containerElement" style={{
+            marginTop:"30px",
             position: 'relative',
             height: '500px',
             overflow: 'scroll'}}>

@@ -12,7 +12,7 @@ const UploadForm = () => {
                 <div className="col-md-6 text-center">
                     <h2>Upload your Resume</h2>
                         <input
-                        style={{margin:'20px'}}
+                        style={{margin:'20px 0px'}}
                             type="file"
               
                             onChange={uploadFile}
