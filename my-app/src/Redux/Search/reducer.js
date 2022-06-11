@@ -3,17 +3,16 @@ import { COUNT_TOTAL_RESULT,
         FETCH_JOBS_ID_SUCCESS,
          FETCH_LOADING, 
          FETCH_SUCCESS, 
-         SET_PAGE} from "./actionTypes"
+         SET_PAGE} from "./actionTypes";
 
 const init = {
     isLoading :false,
     isError:false,
     searched:[],
     jobsById:{},
-    totalCount:null,
+    totalCount:1,
     page:1
 }
-
 
 
 

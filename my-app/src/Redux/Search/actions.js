@@ -40,19 +40,6 @@ export const setCurrentPage = payload=>{
 }
 
 
-// export const addJobs = (payload) => (dispatch) => {
-//   var config = {
-//     method: "post",
-//     url: `${base_url}/jobs`,
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     data: payload,
-//   };
-//   axios(config).then((res) => res.data);
-// };
-
-
 
 export const setCount = (payload) => {
   return {
@@ -73,8 +60,6 @@ export const dispatchCount = (payload) => (dispatch) => {
       city_like: location,
       jobType_like: jobType,
       _start: start,
-
-
     },
   };
 
@@ -125,3 +110,4 @@ export const getSearchData = (job = "", location = "", page = "1") => (dispatch)
       dispatch(fetchError());
     });
 };
+

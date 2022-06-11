@@ -19,6 +19,7 @@ function SearchForm(props) {
     const locationOptions = ['Bangalore','Mumbai','Delhi','Kolkata','Chennai', 'Jalgaon'];
     const history = useHistory()
     const [error,setError] = useState(false);
+
     
 
     const handleSearch=e=>{
@@ -26,9 +27,10 @@ function SearchForm(props) {
 
         //if both are null the return error
         if(job === "" && location === ""){
-            setError(true)
+            setError(true);
             return
         }
+
 
         //default value of number of page 1;
         dispatch(setCurrentPage(1))
@@ -88,10 +90,15 @@ function SearchForm(props) {
                     helperText='City, state, or pin code' classes="classes"
                     options={locationOptions} />
 
+
+                    <input type="text" value='a' style={{display:"none"}}/>
+
+
                     <Grid item lg={2} md={2} sm={2} xs={12} className="btn_Container">
                         <Button color={'primary'} variant='contained' type='submit'>
                             Find Jobs
                         </Button>
+
 
                         {/* change reset into submit then it will work properly */}
                     </Grid>

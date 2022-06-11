@@ -6,11 +6,23 @@ import Typography from "@mui/material/Typography";
 import * as React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+// import SearchForm from "../Forms/SearchForm/SearchForm";
 import styles from "./MyAppbar.module.css";
 import UserMenu from "./UserMenu";
+// import handleSearch from './../Forms/SearchForm/SearchForm';
+import SearchForm from "../Forms/SearchForm/SearchForm";
+
+
 
 export default function MyAppbar() {
   const { isAuth } = useSelector((state) => state.login);
+  // let jobs = useSelector(state=>state.search.searched)
+
+  // function add(){
+
+  // }
+
+
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>
@@ -30,7 +42,7 @@ export default function MyAppbar() {
                   </Link>
                 </Typography>
 
-                <Link style={{ textDecoration: "none" }} to="/viewjobs">
+                <Link style={{ textDecoration: "none" }}  to="/viewjobs">
                   <Typography
                     sx={{ fontWeight: "bold", fontSize: "1.2rem" }}
                     className={styles.typography}

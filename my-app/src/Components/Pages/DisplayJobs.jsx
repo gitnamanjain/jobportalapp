@@ -15,6 +15,8 @@ import JobMenu from '../Layout/Menu/JobMenu';
 import {makeSaveJobRequest} from '../../Redux/SaveJob/actions';
 import "./css/displayjob.style.css";
 import CircularProgress from '@mui/material/CircularProgress';
+// import { axios } from 'axios';
+
 
 
 
@@ -32,6 +34,7 @@ function DisplayJobs(props) {
    
     
     const [ignored, forceUpdate] =useReducer(x => x + 1, 0)
+
     
     let jobs = useSelector(state=>state.search.searched)
     let totalCount = useSelector(state=>state.search.totalCount)
@@ -43,6 +46,7 @@ function DisplayJobs(props) {
     //     dispatch(getSearchData(job,location,page))
     //     forceUpdate()
     // }
+
     
     const pageNo = query.get('page')
     let [page,setPage] = useState(Number(pageNo))
@@ -51,9 +55,6 @@ function DisplayJobs(props) {
     // let [jobType,setJobType] = useState(jt) 
     // let [occupation, setOccupation] = useState(occu)
     // let [education , setEducation] = useState(edu)
-    
-
-
     // let [sortDateIsCliked,setSortDateIsCliked] = useState(false)
 
 
@@ -104,6 +105,7 @@ function DisplayJobs(props) {
     return (
         <>
         <div className="job_section" >
+            {console.log(jobs)}
             <Box style={{transform:"scale(0.8) translateX(-12%)"}}>
                 <SearchForm />
             </Box>
@@ -128,6 +130,7 @@ function DisplayJobs(props) {
                 <Box style={{display:'flex'}} >  
                     <Grid className="jobContainer" classes="fhhh" container>
                         {
+
                             jobs.map((job,index)=>
                             <Grid className="card"  item key={job.jobkey} lg={12} md={12} sm={12} xs={12} >
                                 <Box 
