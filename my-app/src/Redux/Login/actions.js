@@ -36,21 +36,24 @@ export const logout = () => {
 
 export const makeLoginRequest = ({ email, password }) => (dispatch) => {
   dispatch(loginRequest())
-
-  const expireIn= 3600;
-
+  const expireIn = 3600;
   axios
-    .get("http://localhost:9002/login")
+    .post("http://localhost:9002/login", { "email": email, "password": password })
     .then((res) => {
-      console.log(res.data.users);
-      // saveTokenInLocalStorage(res.data);
+      console.log(res.data)
+      if (res.data) {
+        dispatch(loginSuccess(email));
+      }
+      else {
+        dispatch(loginFailure("Invalid Credentials"))
+      }
       runLogoutTimer(dispatch, (expireIn * 1000));
-      dispatch(authenticateUser(email, password, res.data.users));
+      // dispatch(authenticateUser(email, password, res.data.users));
     })
     .catch((err) => dispatch(loginFailure("Somthing went wrong")));
 };
 
-const authenticateUser = (email, password, usersData ) => (dispatch) => {
+const authenticateUser = (email, password, usersData) => (dispatch) => {
   for (let i = 0; i < usersData.length; i++) {
     if (usersData[i].email === email && usersData[i].password === password) {
       dispatch(loginSuccess(usersData[i]));

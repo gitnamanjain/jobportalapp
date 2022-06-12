@@ -25,31 +25,15 @@ const registerFailure = (errorMsg) => {
   };
 };
 
-export const makeRegisterRequest = ({name, email, password }) => (dispatch) => {
+export const makeRegisterRequest = ({ name, email, password }) => (dispatch) => {
   dispatch(registerRequest());
+  dispatch(registerNewUser({ name, email, password }));
 
-  axios
-    .get("http://localhost:9002/login")
-    .then((res) => {
-      console.log(res.data.users);
-      dispatch(checkUserExists(name ,email, password, res.data.users));
-    })
-    .catch((err) => dispatch(registerFailure("Something went wrong")));
 };
 
-const checkUserExists = (name ,email, password, usersData) => (dispatch) => {
-  for (let i = 0; i < usersData.length; i++) {
-    if (usersData[i].email === email) {
-      alert("already exist")
-      // dispatch(registerFailure("user already exists"));
-      return;
-    }
-  }
 
-  dispatch(registerNewUser({name, email, password }));
-};
 
-const registerNewUser = ({name, email, password }) => (dispatch) => {
+const registerNewUser = ({ name, email, password }) => (dispatch) => {
 
 
   axios
@@ -64,7 +48,7 @@ const registerNewUser = ({name, email, password }) => (dispatch) => {
     })
     .then((res) => dispatch(registerSuccess()));
 
-    alert("Register sucessfully  :) ");
+  alert("Register sucessfully  :) ");
 };
 
 
