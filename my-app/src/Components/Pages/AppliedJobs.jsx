@@ -90,7 +90,7 @@ function AppliedJobs(props) {
                                 applied.map((key)=>{
                                     return (
                                         <>
-                                        <Box style={{display:'flex',border:"1px solid black",borderRadius:"10px",padding:"20px",}}   key={key} >
+                                        <Box style={{display:'flex',border:"1px solid black",borderRadius:"10px",padding:"20px",marginBottom:"20px"}}   key={key} >
                                         
                                             <Box style={{width:'500px'}}>
                                                 <Typography variant='h5' style={{fontSize:'18px',marginBottom:'15px'}}> 
@@ -105,7 +105,7 @@ function AppliedJobs(props) {
                                                 </Box>
                                             </Box>
                                             <Box style={{display:'flex'}}>
-                                            <Button className="applyButton" onClick={()=>handleOpen(key)} >
+                                            <Button className="applyButton" onClick={()=>handleOpen(key)} style={{height:"40px", width:"100px", border:"1px solid"}} >
                                                     Cancel {jobId  ? null : null} {ignored ? null : null}
                                             </Button>
 

@@ -33,7 +33,7 @@ function Input({classes,setValue,value,options,setError}) {
                                 />
                                 {
                                     display && (
-                                        <div style={{position:'absolute'}} className={classes.autocontainer}>
+                                        <div style={{position:'absolute',width:"195px"}} className={classes.autocontainer}>
                                             {
                                                 options?.filter(option => option.toLowerCase().indexOf(value.toLowerCase()) > -1).map((option,index)=>{
                                                     return (
@@ -42,7 +42,8 @@ function Input({classes,setValue,value,options,setError}) {
                                                             setValue(option)
                                                             setDisplay(false)
                                                         }}
-                                                        style={{cursor:'pointer'}}
+                                                        style={{cursor:'pointer',padding:"10px",
+                                                        borderBottom:"1px solid black"}}
                                                         >
                                                             <span style={{marginLeft:'15px'}}>
                                                                 {option}

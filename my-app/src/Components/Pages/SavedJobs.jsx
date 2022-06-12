@@ -104,7 +104,9 @@ function SavedJobs(props) {
                                                 </Box>
                                             </Box>
                                             <Box style={{display:'flex'}}>
-                                            <Button className="applyButton"
+                                            <Button className="applyButton" style={{width:"100px",
+                                                height:"40px",
+                                                border:"1px solid"}}
                                              onClick={()=>handleOpen(key)} 
                                              disabled={applied_job[key]?true:false}>
                                                     {applied_job[key]?"Already applied":"Apply"}

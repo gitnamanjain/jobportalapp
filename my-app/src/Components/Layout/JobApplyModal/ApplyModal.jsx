@@ -36,12 +36,16 @@ const modal={
 
 const applyForm={
   boxSizing:'border-box',
-  width: "80%",
+  width: "30%",
   borderRadius:"10px", 
   height: "80vh", 
   backgroundColor: "white",
   outline:'none',
   padding:'40px',
+  display:"flex",
+  flexDirection:"column",
+  alignItems:"center",
+  gap:"10px",
 
 }
 
@@ -107,8 +111,8 @@ export const ApplyModal = ({open,handleClose,jobId,handleApply}) => {
             </Grid>
               <UploadForm />
           </form>
-          <Button variant='contained' color='primary' style={{marginRight:'20px'}} onClick={handleApply}>Apply</Button>
-          <Button variant='outlined' onClick={handleClose}>cancel</Button>
+          <Button variant='contained' color='primary' style={{width:"100px"}} onClick={handleApply}>Apply</Button>
+          <Button variant='outlined' style={{width:"100px"}} onClick={handleClose}>cancel</Button>
         </div>
       </Modal>
     </div>
