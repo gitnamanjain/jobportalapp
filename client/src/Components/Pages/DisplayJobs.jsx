@@ -28,9 +28,9 @@ function DisplayJobs(props) {
 
     let job = query.get('q') || ""
     let location = query.get('location') || ""
-    let jt = query.get("jt") || ""
-    let occu = query.get("occupation") || ""
-    let edu = query.get("education") || ""
+    // let jt = query.get("jt") || ""
+    // let occu = query.get("occupation") || ""
+    // let edu = query.get("education") || ""
    
     
     const [ignored, forceUpdate] =useReducer(x => x + 1, 0)

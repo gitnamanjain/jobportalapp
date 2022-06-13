@@ -1,21 +1,9 @@
-import React, { useState } from "react";
-import {
-  Container,
-  Grid,
-  OutlinedInput,
-  Typography,
-  Button,
-} from "@mui/material";
-import { IconButton, Snackbar } from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
-import { Box, FormHelperText, FormControlLabel, Checkbox } from "@mui/material";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
 import { makeRegisterRequest } from "../../Redux/Register/actions";
 import MyAppbar from "../Layout/appbar/MyAppbar";
 import styles from "./Register.module.css";
-
-const GreenCheckbox = (props) => <Checkbox color="default" {...props} />;
 
 export function Register() {
   const isAuth = useSelector((state) => state.login.isAuth);
@@ -24,9 +12,6 @@ export function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  const [snackBarOpen, setSnackBarOpen] = useState(false);
-
-  // const {success,isError,errorMsg} = useSelector(state=>state.register)
 
   const onNameChange = (e) => {
     setName(e.target.value);

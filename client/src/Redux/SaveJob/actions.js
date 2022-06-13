@@ -1,9 +1,8 @@
 import axios from "axios";
-import {
-  SAVE_JOB_FAILURE,
-  SAVE_JOB_REQUEST,
-  SAVE_JOB_SUCCESS,
-} from "./actionType";
+
+export const SAVE_JOB_REQUEST = 'SAVE_JOB_REQUEST'
+export const SAVE_JOB_SUCCESS = 'SAVE_JOB_SUCCESS'
+export const SAVE_JOB_FAILURE = 'SAVE_JOB_FAILURE'
 
 const saveJobRequest = () => {
   return {

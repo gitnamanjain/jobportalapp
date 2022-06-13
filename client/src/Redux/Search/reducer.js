@@ -1,59 +1,61 @@
-import { COUNT_TOTAL_RESULT,
-        FETCH_ERROR, 
-        FETCH_JOBS_ID_SUCCESS,
-         FETCH_LOADING, 
-         FETCH_SUCCESS, 
-         SET_PAGE} from "./actionTypes";
+import {
+    COUNT_TOTAL_RESULT,
+    FETCH_ERROR,
+    FETCH_JOBS_ID_SUCCESS,
+    FETCH_LOADING,
+    FETCH_SUCCESS,
+    SET_PAGE
+} from "./actions";
 
 const init = {
-    isLoading :false,
-    isError:false,
-    searched:[],
-    jobsById:{},
-    totalCount:1,
-    page:1
+    isLoading: false,
+    isError: false,
+    searched: [],
+    jobsById: {},
+    totalCount: 1,
+    page: 1
 }
 
 
 
-export const searchReducer = (state=init, {type,payload}) =>{
-    switch(type){
+export const searchReducer = (state = init, { type, payload }) => {
+    switch (type) {
         case FETCH_LOADING:
-            return{
+            return {
                 ...state,
-                isLoading:true,
-                isError:false
+                isLoading: true,
+                isError: false
             }
         case FETCH_ERROR:
-            return{
+            return {
                 ...state,
-                isLoading:false,
-                isError:true
+                isLoading: false,
+                isError: true
             }
         case FETCH_SUCCESS:
-            return{
+            return {
                 ...state,
-                isLoading:false,
-                isError:false,
-                searched:payload.reverse()
+                isLoading: false,
+                isError: false,
+                searched: payload.reverse()
             }
-        
+
         case COUNT_TOTAL_RESULT:
-            return{
+            return {
                 ...state,
-                totalCount:payload
+                totalCount: payload
             }
 
         case FETCH_JOBS_ID_SUCCESS:
-            return{
+            return {
                 ...state,
-                jobsById:payload
+                jobsById: payload
             }
 
         case SET_PAGE:
-            return{
+            return {
                 ...state,
-                page:payload
+                page: payload
             }
 
         default:

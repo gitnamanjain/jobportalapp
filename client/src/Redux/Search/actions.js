@@ -1,11 +1,11 @@
-import {
-  COUNT_TOTAL_RESULT,
-  FETCH_ERROR,
-  SET_PAGE,
-  FETCH_LOADING,
-  FETCH_SUCCESS,
-} from "./actionTypes";
 import axios from "axios";
+
+export const FETCH_SUCCESS = "FETCH_SUCCESS"
+export const FETCH_LOADING = "FETCH_LOADING"
+export const FETCH_ERROR = "FETCH_ERROR"
+export const FETCH_JOBS_ID_SUCCESS = "FETCH_JOBS_ID_SUCCESS"
+export const COUNT_TOTAL_RESULT = "COUNT_TOTAL_RESULT"
+export const SET_PAGE = "SET_PAGE"
 
 // https://job-api-jayesh-deploy.herokuapp.com/
 
@@ -32,11 +32,11 @@ const fetchError = () => {
 
 
 //
-export const setCurrentPage = payload=>{
-    return{
-      type:SET_PAGE,
-      payload
-    }
+export const setCurrentPage = payload => {
+  return {
+    type: SET_PAGE,
+    payload
+  }
 }
 
 
@@ -92,7 +92,7 @@ export const getSearchData = (job = "", location = "", page = "1") => (dispatch)
       dispatch(fetchSuccess(res.data));
     })
     .then(() => {
-      let url = `${base_url}/jobs`;
+      // let url = `${base_url}/jobs`;
 
       if (location !== "" && job !== "") {
         url = `${base_url}/jobs?location_like=${location}&jobTitle_like=${job}`;
@@ -101,7 +101,7 @@ export const getSearchData = (job = "", location = "", page = "1") => (dispatch)
       } else if (job !== "") {
         url = `${base_url}/jobs?jobTitle_like=${job}`;
       }
-      axios({config}).then((res) => {
+      axios({ config }).then((res) => {
         dispatch(setCount(res.data.length));
       });
     })

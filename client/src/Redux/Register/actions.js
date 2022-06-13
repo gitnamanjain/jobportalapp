@@ -2,8 +2,7 @@ import axios from "axios";
 import { v4 as uuid } from "uuid";
 import {
   REGISTER_REQUEST,
-  REGISTER_SUCCESS,
-  REGISTER_FAILURE,
+  REGISTER_SUCCESS
 } from "./actionTypes";
 
 const registerRequest = () => {
@@ -18,12 +17,12 @@ const registerSuccess = () => {
   };
 };
 
-const registerFailure = (errorMsg) => {
-  return {
-    type: REGISTER_FAILURE,
-    payload: errorMsg,
-  };
-};
+// const registerFailure = (errorMsg) => {
+//   return {
+//     type: REGISTER_FAILURE,
+//     payload: errorMsg,
+//   };
+// };
 
 export const makeRegisterRequest = ({ name, email, password }) => (dispatch) => {
   dispatch(registerRequest());

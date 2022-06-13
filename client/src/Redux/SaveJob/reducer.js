@@ -1,29 +1,27 @@
-import { SAVE_JOB_REQUEST,SAVE_JOB_SUCCESS,SAVE_JOB_FAILURE } from "./actionType"
+import { SAVE_JOB_REQUEST, SAVE_JOB_SUCCESS, SAVE_JOB_FAILURE } from "./actions"
 
 const initState = {
-    isSaving:true,
-    isSaved:false,
-    isError:false
+    isSaving: true,
+    isSaved: false,
+    isError: false
 }
 
-
-
-export const saveReducer = (state=initState,{type,payload})=>{
-    switch(type){
-        case SAVE_JOB_REQUEST:return {
+export const saveReducer = (state = initState, { type, payload }) => {
+    switch (type) {
+        case SAVE_JOB_REQUEST: return {
             ...state,
-            isSaving:true
+            isSaving: true
         };
-        case SAVE_JOB_SUCCESS:return {
+        case SAVE_JOB_SUCCESS: return {
             ...state,
-            isSaving:false,
-            isSaved:true
+            isSaving: false,
+            isSaved: true
         };
-        case SAVE_JOB_FAILURE:return {
+        case SAVE_JOB_FAILURE: return {
             ...state,
-            isSaving:false,
-            isError:true
+            isSaving: false,
+            isError: true
         }
-        default:return state
+        default: return state
     }
 }

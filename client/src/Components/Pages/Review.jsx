@@ -1,23 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getCompanyReviews } from "../../Redux/CompanyReviews/action";
-import axios from "axios";
-import { ReviewBox } from "../Layout/Review/ReviewBox";
 import StarIcon from "@mui/icons-material/Star";
-import { Grid, Container, Typography, Button } from "@mui/material";
+import { Container, Grid, Typography } from "@mui/material";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
+import { getCompanyReviews } from "../../Redux/CompanyReviews/action";
 import Footer from "../Layout/footer/Footer";
+import { ReviewBox } from "../Layout/Review/ReviewBox";
 const imgCont = {
   padding: "5px",
   borderRadius: "5px",
   boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
 };
 
-const optionTab = {
-  cursor: "pointer",
-  fontSize: "x-large",
-  margin: "0 40px 0 40px",
-};
+
 
 export function Review(props) {
   const companyDetails = useSelector((state) => state.companies.currentCompany);

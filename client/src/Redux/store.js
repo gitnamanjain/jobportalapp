@@ -1,35 +1,35 @@
-import { applyMiddleware, combineReducers, createStore, compose } from "redux";
-import { searchReducer } from "./Search/reducer";
-import thunk from "redux-thunk"
-import { loginReducer } from "./Login/reducer";
+import { applyMiddleware, combineReducers, createStore } from "redux";
+import thunk from "redux-thunk";
 import { CompanyReducer } from "./CompanyReviews/reducer";
+import { loginReducer } from "./Login/reducer";
 import { registerReducer } from "./Register/reducer";
+import { searchReducer } from "./Search/reducer";
 //do work here
-import {persistStore,persistReducer} from 'redux-persist';
+import { persistReducer, persistStore } from 'redux-persist';
 import storage from "redux-persist/lib/storage";
 
-const persistConfig={
-    key:'persist-key',
+const persistConfig = {
+    key: 'persist-key',
     storage
 }
 
 //end
 
 const rootReducer = combineReducers({
-                                        search:searchReducer,
-                                        login:loginReducer,
-                                        register:registerReducer,
-                                        companies:CompanyReducer
-                                    })
+    search: searchReducer,
+    login: loginReducer,
+    register: registerReducer,
+    companies: CompanyReducer
+})
 //start
 
-const persistedReducer = persistReducer(persistConfig , rootReducer);
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-export const store = createStore(persistedReducer,applyMiddleware(thunk))
+export const store = createStore(persistedReducer, applyMiddleware(thunk))
 
 const persistor = persistStore(store);
 
-export {persistor}
+export { persistor };
 
 
 // const createComposer  = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

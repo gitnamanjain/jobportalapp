@@ -3,9 +3,9 @@ import {
   LOGIN_FAILURE,
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
-  LOGOUT,
+  LOGOUT
 } from "./actionTypes";
-import { runLogoutTimer, saveTokenInLocalStorage } from "./reducer";
+import { runLogoutTimer } from "./reducer";
 
 const loginRequest = () => {
   return {
@@ -53,22 +53,6 @@ export const makeLoginRequest = ({ email, password }) => (dispatch) => {
     .catch((err) => dispatch(loginFailure("Somthing went wrong")));
 };
 
-const authenticateUser = (email, password, usersData) => (dispatch) => {
-  for (let i = 0; i < usersData.length; i++) {
-    if (usersData[i].email === email && usersData[i].password === password) {
-      dispatch(loginSuccess(usersData[i]));
-      return;
-    } else {
-      if (usersData[i].email === email && usersData[i].password !== password) {
-        alert("wrong password");
-        dispatch(loginFailure("Wrong password"));
-        return;
-      }
-    }
-  }
 
-  alert("User Does Not Exist");
-  dispatch(loginFailure("User Does Not Exist"));
-};
 
 

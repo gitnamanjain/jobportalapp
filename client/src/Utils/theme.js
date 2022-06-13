@@ -11,13 +11,11 @@ export default createMuiTheme({
     },
     typography: {
         fontFamily: ["Manrope", "sans-serif"].join(","),
-    },
-    typography: {
         h6: {
             fontSize: 14,
         },
         h5: {
             fontWeight: "bold",
-        },
-    },
+        }
+    }
 });
