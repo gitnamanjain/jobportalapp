@@ -1,7 +1,10 @@
-import express from "express"
-import cors from "cors"
+import cors from "cors";
+import express from "express";
 import mongoose from "mongoose";
-import bcrypt from "bcrypt";
+import User from "./models/user.js";
+import authRoute from "./routes/auth.js";
+import jobsRoute from "./routes/jobs.js";
+
 //middleware
 const app = express()
 app.use(express.json())
@@ -16,111 +19,48 @@ mongoose.connect("mongodb://localhost:27017/myLoginRegisterDB", {
     console.log("DB connected")
 })
 
-//mongoose user schema
-const userSchema = new mongoose.Schema({
-    name: String,
-    email: String,
-    password: String,
-    user_id: String,
-    saved_jobs: Object,
-    applied_job: Object,
-    my_reviews: Object,
-}, { minimize: false })
 
-// userSchema.pre('save',async function(next){
-//     const salt=await bcrypt.genSalt();
-//     this.password=await bcrypt.hash(this.password,salt);
-//     next();
+
+app.use("/", authRoute)
+app.use("/", jobsRoute)
+
+
+// app.patch("/users/saved_jobs", (req, res) => {
+
+//     const { user_id, saved_jobs } = req.body;
+//     User.findOneAndUpdate({ user_id: user_id },
+
+//         {
+//             $set: {
+//                 saved_jobs: saved_jobs
+//             }
+//         }
+//     )
+//         .then((res) => {
+//             console.log("patch sucessfull");
+//         })
+//         .catch(err => console.log("patch error"))
+
 // })
 
 
-//mongoose User model
-const User = new mongoose.model("User", userSchema)
-async function comparePassword(plaintextPassword, hash) {
-    const result = await bcrypt.compare(plaintextPassword, hash);
-    return result
-}
-app.post('/login', async function (req, res) {
-    const { email, password } = req.body;
-    await User.findOne({ email: email }, (err, user) => {
+// app.patch("/users/applied_jobs", (req, res) => {
 
-        comparePassword(password, user.password).then(result => res.send(result))
-    }
+//     const { user_id, saved_jobs, applied_job } = req.body;
+//     User.findOneAndUpdate({ user_id: user_id },
 
-    )
-    // User.find({}, function (err, users) {
-    //     res.send({ users: users });
-    // });
-    res.end
-});
+//         {
+//             $set: {
+//                 applied_job: applied_job
+//             }
+//         }
+//     )
+//         .then((res) => {
+//             console.log("Applied job updated..!!!");
+//         })
+//         .catch(err => console.log("Applied job Error..!!"))
 
-app.post("/register", async (req, res) => {
-    const { name, email, password, user_id, saved_jobs, applied_job, my_reviews } = req.body;
-    let hashedPassword = await bcrypt.hash(password, 10);
-    User.findOne({ email: email }, (err, user) => {
-        if (user) {
-            res.send({ message: "User already registerd" })
-        } else {
-
-            const user = new User({
-                name,
-                email,
-                password: hashedPassword,
-                user_id,
-                saved_jobs,
-                applied_job,
-                my_reviews
-            })
-
-            user.save(err => {
-                if (err) {
-                    res.send(err)
-                } else {
-                    res.send({ message: "Successfully Registered, Please login now." })
-                }
-            })
-        }
-    })
-
-})
-
-
-app.patch("/users/saved_jobs", (req, res) => {
-
-    const { user_id, saved_jobs } = req.body;
-    User.findOneAndUpdate({ user_id: user_id },
-
-        {
-            $set: {
-                saved_jobs: saved_jobs
-            }
-        }
-    )
-        .then((res) => {
-            console.log("patch sucessfull");
-        })
-        .catch(err => console.log("patch error"))
-
-})
-
-
-app.patch("/users/applied_jobs", (req, res) => {
-
-    const { user_id, saved_jobs, applied_job } = req.body;
-    User.findOneAndUpdate({ user_id: user_id },
-
-        {
-            $set: {
-                applied_job: applied_job
-            }
-        }
-    )
-        .then((res) => {
-            console.log("Applied job updated..!!!");
-        })
-        .catch(err => console.log("Applied job Error..!!"))
-
-})
+// })
 
 
 app.listen(9002, () => {

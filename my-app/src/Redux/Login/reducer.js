@@ -19,7 +19,7 @@ export const loginReducer = (state=initState,{type,payload})=>{
             ...state,
             isAuth:true,
             isLoading:false,
-            loggedUser:payload
+            loggedUser:payload //here
         };
         case LOGIN_FAILURE: return {
             ...state,

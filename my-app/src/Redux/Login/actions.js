@@ -42,7 +42,7 @@ export const makeLoginRequest = ({ email, password }) => (dispatch) => {
     .then((res) => {
       console.log(res.data)
       if (res.data) {
-        dispatch(loginSuccess(email));
+        dispatch(loginSuccess(res.data)); //fix here
       }
       else {
         dispatch(loginFailure("Invalid Credentials"))
