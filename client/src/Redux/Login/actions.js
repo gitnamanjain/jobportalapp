@@ -40,7 +40,7 @@ export const makeLoginRequest = ({ email, password }) => (dispatch) => {
   axios
     .post("http://localhost:9002/login", { "email": email, "password": password })
     .then((res) => {
-      console.log(res.data)
+      console.log(res.headers)
       if (res.data) {
         dispatch(loginSuccess(res.data)); //fix here
       }
