@@ -1,8 +1,5 @@
 
-// import { POST_JOB_REQUEST, POST_JOB_SUCCESS, POST_JOB_FAILURE } from "./actionType"
-const  POST_JOB_REQUEST = 'POST_JOB_REQUEST'
-const  POST_JOB_SUCCESS = 'POST_JOB_SUCCESS'
-const  POST_JOB_FAILURE = 'POST_JOB_FAILURE'
+import { POST_JOB_REQUEST, POST_JOB_SUCCESS, POST_JOB_FAILURE } from "./actionType"
 
 const initSate = {
     isPosting:false,

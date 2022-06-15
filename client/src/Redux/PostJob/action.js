@@ -27,12 +27,26 @@ const postJobFailure = () => {
 export const makePostJobRequest = (payload)=>(dispatch)=>{
     dispatch(postJobRequest())
     // const jobid=uuid();
+    console.log(payload);
     return axios.post('https://job-api-jayesh-deploy.herokuapp.com/jobs',{
-        ...payload,
-        jobkey:uuid()
+      // companyName: payload.companyName,
+      // companyUrl: payload.companyUrl,
+      // date: payload.date,
+      // education: payload.education,
+      // endSalary: payload.endSalary,
+      // jobDescription: payload.jobDescription,
+      // jobTitle: payload.jobTitle,
+      // jobType: payload.jobType,
+      // location: payload.location,
+      // occupation: payload.occupation,
+      // salaryType: payload.salaryType,
+      // snippet: payload.snippet,
+      // startSalary: payload.startSalary,
+      ...payload,
+      jobkey:uuid()
         
     }).then((res)=>{
-      alert("Job Posted Sucessfully :) Kindly note JobId In order to Track job record jobId:")
+      alert("Job Posted Sucessfully :) ")
       dispatch(postJobSuccess())
     }).catch(err=>{
         dispatch(postJobFailure())
