@@ -13,12 +13,14 @@ import PrivateRoute from "./PrivateRoute";
 // import LandingPage from "../Components/Pages/LandingPage.jsx";
 import Homepage from "../Components/Layout/homepage/Homepage";
 import MyAppbar from "../Components/Layout/appbar/MyAppbar";
+import PostJOB from "../Components/Pages/PostJOB";
 
 function Routes(props) {
   return (
     <div>
       <Switch>
         <PrivateRoute exact path="/viewjobs" Component={Home} />
+        <PrivateRoute exact path="/postjob" Component={PostJOB}/>
         <PrivateRoute exact path="/companies" Component={CompanyReviews} />
         <PrivateRoute exact path="/savedJobs" Component={SavedJobs} />
         <PrivateRoute exact path="/appliedJobs" Component={AppliedJobs} />
@@ -33,7 +35,6 @@ function Routes(props) {
         <Route path="/Register" exact>
           <Register />
         </Route>
-
         <PrivateRoute exact path="/" Component={Home} />
         <PrivateRoute path="/jobs" Component={DisplayJobs} />
         <PrivateRoute path="/reviews" exact Component={Review} />
@@ -43,3 +44,4 @@ function Routes(props) {
 }
 
 export default Routes;
+

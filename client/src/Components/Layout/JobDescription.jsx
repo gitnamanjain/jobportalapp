@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material';
-import { styled } from '@mui/material/styles';
+// import { styled } from '@mui/material/styles';
 import React , {useReducer,useState} from 'react';
 import { Button } from '@mui/material';
 import  Section  from './Section';
@@ -96,8 +96,6 @@ function JobDescription({jobData}) {
                     jobId = {jobId}
                     handleApply ={()=>handleApply()}
             />
-
-            
         </div>
     );
 }
