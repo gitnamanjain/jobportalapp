@@ -89,7 +89,6 @@ router.post("/register", async (req, res) => {
   });
 });
 
-<<<<<<< HEAD
 //jwt
 router.get("/jwt", async (req, res) => {
   const token = req.headers["x-access-token"];
@@ -113,42 +112,3 @@ router.get("/jwt", async (req, res) => {
 });
 
 export default router;
-=======
-})
-
-
-//jwt
-router.get('/jwt', async (req, res) => {
-	const token = req.headers['x-access-token']
-
-	try {
-		const decoded = jwt.verify(token, 'super_secret_key');
-        // console.log(decoded);
-		const email = decoded.id;
-        
-		const user = await User.findOne({ email: email })
-        if(user){
-            return res.status(201).send({ status: 'ok'})
-        }
-		
-        return res.status(401).send({status:'fail'})
-	} catch (error) {
-		console.log(error)
-		res.send({ status: 'error', error: 'invalid token' })
-	}
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-export default router;
->>>>>>> a452d5b (JWT Final Done Working)
