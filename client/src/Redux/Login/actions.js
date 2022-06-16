@@ -40,7 +40,7 @@ export const makeLoginRequest = ({ email, password }) => (dispatch) => {
   dispatch(loginRequest())
   const expireIn = 3600;
   axios
-    .post("http://localhost:9002/login", { "email": email, "password": password })
+    .post("http://localhost:9002/login", { "email": email, "password": password }, { withCredentials: true })
     .then((res) => {
       console.log(res.headers)
       if (res.data) {
