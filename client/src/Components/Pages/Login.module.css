@@ -147,16 +147,21 @@
     /* width: 60%; */
     display: block;
     width: 90%;
+    height: 440px;
   }
   .form_container {
-    display: block;
+    display: flex;
     width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
   }
-
+  .green_btn {
+    margin: 0px;
+  }
   .left {
     width: 100%;
+    height: 60%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -169,16 +174,16 @@
   }
 
   .text {
-    font-size: 15px;
+    font-size: 20px;
   }
 
   .right {
     width: 100%;
-    border-radius: 15px;
+    border-radius: 0px;
     /* align-items: center; */
     /* align-content: center; */
     margin-left: auto;
     margin-right: auto;
-    /* height: 100%; */
+    height: 30%;
   }
 }
