@@ -100,7 +100,7 @@ useEffect(() => {
   };
 
   return (
-    <div style={{ padding: "100px 10vw", display: "flex" }}>
+    <div className={styles.savedjobconatiner}>
       <Box>
         <Typography
           variant={"h5"}

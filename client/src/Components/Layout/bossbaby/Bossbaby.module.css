@@ -32,4 +32,14 @@
   color: #127c71;
   font-weight: bold;
 }
+/* responsive */
 
+@media only screen and (max-width: 600px) {
+  .div1{
+    width: 130px;
+    margin-left: 30px;
+  }
+  .ftext{
+    font-size: 6vw;
+  }
+}

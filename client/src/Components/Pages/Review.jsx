@@ -91,7 +91,7 @@ useEffect(() => {
   return (
     companyDetails ? (
       <div>
-        <Container style={{ width:"1020px", marginTop: "100px" }}>
+        <Container className={styles.reviewcontainer}>
           <Grid
             container
             style={{

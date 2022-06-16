@@ -5,6 +5,7 @@ import Modal from '@mui/material/Modal';
 import { Grid, OutlinedInput } from '@mui/material';
 import UploadForm  from './UploadForm';
 import { Button } from '@mui/material';
+import "./applymodal.style.css";
 
 
 // const PREFIX = 'ApplyModal';
@@ -34,20 +35,7 @@ const modal={
 }
 
 
-const applyForm={
-  boxSizing:'border-box',
-  width: "30%",
-  borderRadius:"10px", 
-  height: "80vh", 
-  backgroundColor: "white",
-  outline:'none',
-  padding:'40px',
-  display:"flex",
-  flexDirection:"column",
-  alignItems:"center",
-  gap:"10px",
 
-}
 
 
 const textbox={
@@ -82,7 +70,7 @@ export const ApplyModal = ({open,handleClose,jobId,handleApply}) => {
         aria-describedby="simple-modal-description"
       >
         
-        <div className="applyForm" style={applyForm} >
+        <div className="applyForm">
 
           <form action="">
             <Grid container style={{width:"100%"}}>

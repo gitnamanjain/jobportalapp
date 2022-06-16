@@ -10,6 +10,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import styles from "./Register.module.css";
 // import Slide from '@mui/material/Slide';
 import { useCookies } from 'react-cookie';
 import jwt from 'jsonwebtoken'
@@ -92,7 +93,7 @@ function AppliedJobs(props) {
     }
     
     return (
-        <div style={{padding:'100px 10vw',display:'flex'}}>
+        <div className={styles.savedjobconatiner}>
                 <Box>
                     <Typography variant={'h5'} style={{fontSize:'40px',marginBottom:'20px'}}>
                         My Jobs

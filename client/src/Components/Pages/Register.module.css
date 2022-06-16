@@ -134,9 +134,27 @@
   font-weight: bold;
   cursor: pointer;
 }
+.reviewcontainer{
+  width:1020px;
+  margin-top: 100px;
+}
+.savedjobconatiner{
+  padding: 100px 10vw;
+  display: flex;
+}
+
 /* responsive */
 
 @media only screen and (max-width: 600px) {
+  .reviewcontainer{
+    width:100%;
+    margin-top: 100px;
+    margin-left: 5px;
+  }
+  .savedjobconatiner{
+    padding: 100px 10vw;
+    display: block;
+  }
   .signup_form_container{
     display: flex;
     width: 90%;
@@ -148,5 +166,20 @@
   }
   .right{
     border-radius: 0px 0px 10px 10px;
+  }
+  .left{
+    border-radius: 10px 10px 0px 0px;
+    width: 100%;
+  }
+  .left h1 {
+    font-size: 1.5em;
+  }
+  .form_container h1 {
+    font-size: 30px;
+    margin-top: 10px;
+  }
+  .input{
+    width: 90%;
+    border: 1px solid grey;
   }
 }
