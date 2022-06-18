@@ -12,7 +12,8 @@ import Bossbaby from "../Layout/bossbaby/Bossbaby";
 import { CompanyBox } from "../Layout/Companies/CompanyBox";
 import "./css/companyReviews.style.css";
 import { useCookies } from 'react-cookie';
-import jwt from 'jsonwebtoken'
+import jwt from 'jsonwebtoken';
+import { logout } from "../../Redux/Login/actions.js";
 
 
 
@@ -50,12 +51,13 @@ export function CompanyReviews() {
         const user = jwt.decode(token)
         if (!user) {
                   removeCookie('jayjwt');
-          history.push('/login')
+                  history.push('/login')
         } else {
           populateQuote()
         }
       }
       else{
+          dispatch(logout());
           history.push('/login');
       }
 }, [])

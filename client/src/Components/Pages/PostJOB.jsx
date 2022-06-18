@@ -13,6 +13,7 @@ import { useHistory} from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import jwt from 'jsonwebtoken'
 import { useEffect } from 'react';
+import { logout } from "../../Redux/Login/actions.js";
 
 export default function PostJOB () {
    
@@ -51,6 +52,7 @@ useEffect(() => {
           }
       }
     else{
+        dispatch(logout());
         history.push('/login');
     }
 }, [])

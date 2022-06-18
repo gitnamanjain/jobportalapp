@@ -15,6 +15,7 @@ import data from "./db.json";
 import { useCookies } from 'react-cookie';
 import jwt from 'jsonwebtoken';
 import { useHistory } from 'react-router-dom'
+import { logout } from "../../Redux/Login/actions.js";
 
 function Home(props) {
 
@@ -47,12 +48,13 @@ function Home(props) {
     const user = jwt.decode(token)
     if (!user) {
               removeCookie('jayjwt');
-      history.push('/login')
+              history.push('/login')
     } else {
       populateQuote()
     }
   }
       else{
+          dispatch(logout());
           history.push('/login');
       }
 }, [])

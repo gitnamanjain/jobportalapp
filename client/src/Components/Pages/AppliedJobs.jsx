@@ -16,6 +16,7 @@ import { useCookies } from 'react-cookie';
 import jwt from 'jsonwebtoken'
 import { useHistory} from 'react-router-dom';
 import { useEffect } from 'react';
+import { logout } from "../../Redux/Login/actions.js";
 
 
 function AppliedJobs(props) {
@@ -55,6 +56,7 @@ function AppliedJobs(props) {
               }
           }
         else{
+            dispatch(logout());
             history.push('/login');
         }
     }, [])

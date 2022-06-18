@@ -47,6 +47,7 @@ useEffect(() => {
           }
       }
     else{
+        dispatch(logout());
         history.push('/login');
     }
 }, [])
