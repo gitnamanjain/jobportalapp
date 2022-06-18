@@ -27,7 +27,7 @@ export function Login() {
     history.push("/viewjobs");
   };
 
-  return !isAuth ? (
+  return (
     <>
     <MyAppbar/>
       <div className={styles.box}>
@@ -88,7 +88,5 @@ export function Login() {
         </div>
       </div>
     </>
-  ) : (
-    <Redirect to="/" />
-  );
+  ) ;
 }

@@ -11,13 +11,55 @@ import {
 import Bossbaby from "../Layout/bossbaby/Bossbaby";
 import { CompanyBox } from "../Layout/Companies/CompanyBox";
 import "./css/companyReviews.style.css";
+import { useCookies } from 'react-cookie';
+import jwt from 'jsonwebtoken'
+
+
+
 export function CompanyReviews() {
   const [companies, setCompanies] = useState([]);
   const [query, setQuery] = useState("");
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const { isAuth } = useSelector((state) => state.login);
+  // const { isAuth } = useSelector((state) => state.login);
+
+  const [cookies, setCookie, removeCookie]= useCookies(['jayjwt']);
+  async function populateQuote() {
+  const req = await fetch('http://localhost:9002/jwt', {
+          method:'GET',
+    headers: {
+      'x-access-token': cookies.jayjwt,
+    }
+  })
+  
+      if(req.status === 201){
+          // alert("fine");
+          return;
+      }
+      else{
+          removeCookie('jayjwt');
+          history.push('/login')
+      }
+}
+
+  // Mynewpagetest
+  useEffect(() => {
+      const token =cookies.jayjwt;
+      if (token !==undefined || token) {
+        const user = jwt.decode(token)
+        if (!user) {
+                  removeCookie('jayjwt');
+          history.push('/login')
+        } else {
+          populateQuote()
+        }
+      }
+      else{
+          history.push('/login');
+      }
+}, [])
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,7 +80,7 @@ export function CompanyReviews() {
       .catch((err) => console.log(err));
   }, []);
 
-  return isAuth ? (
+  return (
     <Container
       className="container"
       maxWidth="xl"
@@ -93,8 +135,6 @@ export function CompanyReviews() {
         </Grid>
       </Grid>
     </Container>
-  ) : (
-    <div to="/review" />
-  );
+  ) ;
 
 }

@@ -7,6 +7,10 @@ import { Redirect } from "react-router-dom";
 import { getCompanyReviews } from "../../Redux/CompanyReviews/action";
 import Footer from "../Layout/footer/Footer";
 import { ReviewBox } from "../Layout/Review/ReviewBox";
+import { useCookies } from 'react-cookie';
+import jwt from 'jsonwebtoken'
+import { useHistory} from 'react-router-dom';
+
 const imgCont = {
   padding: "5px",
   borderRadius: "5px",
@@ -14,8 +18,57 @@ const imgCont = {
 };
 
 
-
 export function Review(props) {
+
+
+  
+const history = useHistory()
+//jwt
+const [cookies, setCookie, removeCookie]= useCookies(['jayjwt']);
+
+async function populateQuote() {
+const req = await fetch('http://localhost:9002/jwt', {
+        method:'GET',
+  headers: {
+    'x-access-token': cookies.jayjwt,
+  }
+})
+
+if(req.status === 201){
+    // alert("fine");
+    return;
+}
+else{
+    removeCookie('jayjwt');
+    history.push('/login')
+}
+}
+// Mynewpagetest
+useEffect(() => {
+    const token =cookies.jayjwt;
+    console.log(token);
+
+      if (token !==undefined) {
+          const user = jwt.decode(token)
+          if (!user) {
+              removeCookie('jayjwt');
+              history.push('/login')
+          } else {
+              populateQuote()
+          }
+      }
+    else{
+        history.push('/login');
+    }
+}, [])
+//jwt-end
+
+
+
+
+
+
+
   const companyDetails = useSelector((state) => state.companies.currentCompany);
   const [reviews, setReviews] = useState([]);
   const query = new URLSearchParams(props.location.search);
@@ -35,7 +88,7 @@ export function Review(props) {
       .catch((err) => console.log("Error getting reviews" + err));
   }, []);
 
-  return isAuth ? (
+  return (
     companyDetails ? (
       <div>
         <Container style={{ width:"1020px", marginTop: "100px" }}>
@@ -117,7 +170,5 @@ export function Review(props) {
     ) : (
       <></>
     )
-  ) : (
-    <Redirect to="/login" />
   );
 }

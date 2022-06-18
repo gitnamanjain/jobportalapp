@@ -6,10 +6,12 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import Cookies from "js-cookie";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { logout } from "../../../Redux/Login/actions";
+import { useCookies } from 'react-cookie';
 
 const StyledMenu = (props) => (
   <Menu
@@ -30,6 +32,12 @@ const StyledMenu = (props) => (
 const StyledMenuItem = MenuItem;
 
 export default function UserMenu() {
+
+  const [cookies, setCookie, removeCookie]= useCookies(['jayjwt']);
+
+
+
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const history = useHistory();
   const loggedUser = useSelector((state) => state.login.loggedUser);
@@ -81,8 +89,11 @@ export default function UserMenu() {
         </StyledMenuItem>
         <StyledMenuItem
           onClick={() => {
+            // Cookies.remove('jayjwt');
+            removeCookie('jayjwt');
             handleClose();
             dispatch(logout());
+            history.push('/login')
           }}
         >
           <ListItemIcon>

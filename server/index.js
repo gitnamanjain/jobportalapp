@@ -11,6 +11,7 @@ app.use(express.json())
 app.use(express.urlencoded())
 app.use(cors())
 
+
 //mongodb connect
 mongoose.connect("mongodb://localhost:27017/myLoginRegisterDB", {
     useNewUrlParser: true,

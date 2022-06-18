@@ -32,7 +32,7 @@ function Routes(props) {
           <MyAppbar></MyAppbar>
           <Homepage />
         </Route>
-        <Route path="/Register" exact>
+        <Route path="/register" exact>
           <Register />
         </Route>
         <PrivateRoute exact path="/" Component={Home} />

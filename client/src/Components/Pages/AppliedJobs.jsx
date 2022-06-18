@@ -11,8 +11,52 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 // import Slide from '@mui/material/Slide';
+import { useCookies } from 'react-cookie';
+import jwt from 'jsonwebtoken'
+import { useHistory} from 'react-router-dom';
+import { useEffect } from 'react';
+
 
 function AppliedJobs(props) {
+
+    const history = useHistory()
+    const [cookies, setCookie, removeCookie]= useCookies(['jayjwt']);
+    
+    async function populateQuote() {
+    const req = await fetch('http://localhost:9002/jwt', {
+            method:'GET',
+      headers: {
+        'x-access-token': cookies.jayjwt,
+      }
+    })
+    
+    if(req.status === 201){
+        // alert("fine");
+        return;
+    }
+    else{
+        removeCookie('jayjwt');
+        history.push('/login')
+    }
+    }
+    // Mynewpagetest
+    useEffect(() => {
+        const token =cookies.jayjwt;
+        console.log(token);
+    
+          if (token !==undefined) {
+              const user = jwt.decode(token)
+              if (!user) {
+                  removeCookie('jayjwt');
+                  history.push('/login')
+              } else {
+                  populateQuote()
+              }
+          }
+        else{
+            history.push('/login');
+        }
+    }, [])
 
     const {saved_jobs,applied_job,id} = useSelector(state=>state.login.loggedUser)
     const jobKeys = Object.keys(saved_jobs).reverse()
@@ -25,8 +69,6 @@ function AppliedJobs(props) {
     const [open, setOpen] = useState(false)
     const [jobId, setJobId] = useState("")
 
-  
-
     const handleClose=() =>{
         setOpen(false)
         setJobId("")
@@ -38,8 +80,6 @@ function AppliedJobs(props) {
     }
 
     const mystate=useSelector(state=>state.login.loggedUser);
-
-  
 
     const handleCancel=(key)=>{
         console.log(applied_job)
@@ -83,9 +123,7 @@ function AppliedJobs(props) {
                             Applied {applied.length}
                         </NavLink>
                     </ul>
-
                     <Box>
-                        
                             {
                                 applied.map((key)=>{
                                     return (
@@ -114,7 +152,6 @@ function AppliedJobs(props) {
                                     </Box>
                                      <Dialog
                                      open={open}
-                                    //  TransitionComponent={Transition}
                                      keepMounted
                                      onClose={handleClose}
                                      aria-labelledby="alert-dialog-slide-title"
@@ -139,14 +176,8 @@ function AppliedJobs(props) {
                                     )
                                 })
                             }
-                        
-                            
-                    
                     </Box>
-                   
                 </Box>
-           
-        
         </div>
     );
 }

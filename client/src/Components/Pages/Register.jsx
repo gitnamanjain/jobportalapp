@@ -30,7 +30,7 @@ export function Register() {
     dispatch(makeRegisterRequest({ name, email, password }));
   };
 
-  return !isAuth ? (
+  return (
     <>
       <MyAppbar />
       <div className={styles.mybox}>
@@ -80,7 +80,5 @@ export function Register() {
         </div>
       </div>
     </>
-  ) : (
-    <Redirect to="/login" />
-  );
+  ) ;
 }

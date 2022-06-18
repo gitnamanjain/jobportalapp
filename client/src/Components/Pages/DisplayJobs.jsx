@@ -24,15 +24,9 @@ function DisplayJobs(props) {
     
     
     const query = new URLSearchParams(props.location.search)
-
-
     let job = query.get('q') || ""
     let location = query.get('location') || ""
-    // let jt = query.get("jt") || ""
-    // let occu = query.get("occupation") || ""
-    // let edu = query.get("education") || ""
-   
-    
+
     const [ignored, forceUpdate] =useReducer(x => x + 1, 0)
 
     
@@ -42,20 +36,9 @@ function DisplayJobs(props) {
     let isLoading = useSelector(state=>state.search.isLoading)
     let p = useSelector(state=>state.search.page)
     
-    // const handelReset = ()=>{
-    //     dispatch(getSearchData(job,location,page))
-    //     forceUpdate()
-    // }
-
     
     const pageNo = query.get('page')
     let [page,setPage] = useState(Number(pageNo))
-
-
-    // let [jobType,setJobType] = useState(jt) 
-    // let [occupation, setOccupation] = useState(occu)
-    // let [education , setEducation] = useState(edu)
-    // let [sortDateIsCliked,setSortDateIsCliked] = useState(false)
 
 
     let [jobData,setJobData] = useState(null)   

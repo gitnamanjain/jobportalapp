@@ -4,9 +4,54 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { makeApplyRequest } from "../../Redux/JobApply/actions";
 import { makeSaveJobRequest } from "../../Redux/SaveJob/actions";
+import { useCookies } from 'react-cookie';
+import jwt from 'jsonwebtoken'
 import { ApplyModal } from "../Layout/JobApplyModal/ApplyModal";
+import { useHistory} from 'react-router-dom';
+import { useEffect } from 'react';
 
 function SavedJobs(props) {
+
+const history = useHistory()
+const [cookies, setCookie, removeCookie]= useCookies(['jayjwt']);
+
+async function populateQuote() {
+const req = await fetch('http://localhost:9002/jwt', {
+        method:'GET',
+  headers: {
+    'x-access-token': cookies.jayjwt,
+  }
+})
+
+if(req.status === 201){
+    // alert("fine");
+    return;
+}
+else{
+    removeCookie('jayjwt');
+    history.push('/login')
+}
+}
+// Mynewpagetest
+useEffect(() => {
+    const token =cookies.jayjwt;
+    console.log(token);
+
+      if (token !==undefined) {
+          const user = jwt.decode(token)
+          if (!user) {
+              removeCookie('jayjwt');
+              history.push('/login')
+          } else {
+              populateQuote()
+          }
+      }
+    else{
+        history.push('/login');
+    }
+}, [])
+
+
   const { saved_jobs, applied_job, id } = useSelector(
     (state) => state.login.loggedUser
   );

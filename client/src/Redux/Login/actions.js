@@ -6,6 +6,8 @@ import {
   LOGOUT
 } from "./actionTypes";
 import { runLogoutTimer } from "./reducer";
+import Cookies from 'js-cookie';
+import { useHistory } from 'react-router-dom'
 
 const loginRequest = () => {
   return {
@@ -42,7 +44,9 @@ export const makeLoginRequest = ({ email, password }) => (dispatch) => {
     .then((res) => {
       console.log(res.headers)
       if (res.data) {
-        dispatch(loginSuccess(res.data)); //fix here
+        Cookies.set('jayjwt',res.data.token,{ expires: 1 });
+        dispatch(loginSuccess(res.data.user)); //fix here
+        window.location.href = "/"
       }
       else {
         dispatch(loginFailure("Invalid Credentials"))

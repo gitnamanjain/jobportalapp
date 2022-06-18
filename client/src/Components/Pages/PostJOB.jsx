@@ -9,8 +9,51 @@ import { Button } from '@mui/material';
 import { makePostJobRequest } from './../../Redux/PostJob/action';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
+import { useHistory} from 'react-router-dom';
+import { useCookies } from 'react-cookie';
+import jwt from 'jsonwebtoken'
+import { useEffect } from 'react';
 
 export default function PostJOB () {
+   
+const history = useHistory()
+const [cookies, setCookie, removeCookie]= useCookies(['jayjwt']);
+
+async function populateQuote() {
+const req = await fetch('http://localhost:9002/jwt', {
+        method:'GET',
+  headers: {
+    'x-access-token': cookies.jayjwt,
+  }
+})
+
+if(req.status === 201){
+    // alert("fine");
+    return;
+}
+else{
+    removeCookie('jayjwt');
+    history.push('/login')
+}
+}
+// Mynewpagetest
+useEffect(() => {
+    const token =cookies.jayjwt;
+    console.log(token);
+
+      if (token !==undefined) {
+          const user = jwt.decode(token)
+          if (!user) {
+              removeCookie('jayjwt');
+              history.push('/login')
+          } else {
+              populateQuote()
+          }
+      }
+    else{
+        history.push('/login');
+    }
+}, [])
 
     const [companyName,setCompanyName] = useState(''); 
     const [jobTitle,setJobTitle] = useState(''); 
@@ -28,8 +71,6 @@ export default function PostJOB () {
     const [snippet,setSnippet] = useState('')
 
     // const [snackBarOpen,setSnackBarOpen] = useState(false)
-
-
 
     const dispatch = useDispatch()
 

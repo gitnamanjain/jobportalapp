@@ -11,6 +11,11 @@ import styles from "./MyAppbar.module.css";
 import UserMenu from "./UserMenu";
 // import handleSearch from './../Forms/SearchForm/SearchForm';
 import SearchForm from "../Forms/SearchForm/SearchForm";
+import { useState } from "react";
+import { useEffect } from 'react';
+import { useHistory } from 'react-router-dom'
+import { useCookies } from 'react-cookie';
+import jwt from 'jsonwebtoken'
 
 
 
@@ -18,9 +23,7 @@ export default function MyAppbar() {
   const { isAuth } = useSelector((state) => state.login);
   // let jobs = useSelector(state=>state.search.searched)
 
-  // function add(){
 
-  // }
 
 
   return (

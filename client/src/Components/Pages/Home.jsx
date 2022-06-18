@@ -12,8 +12,58 @@ import JobDescription from "../Layout/JobDescription";
 import JobMenu from "../Layout/Menu/JobMenu";
 import "./css/Home.style.css";
 import data from "./db.json";
+import { useCookies } from 'react-cookie';
+import jwt from 'jsonwebtoken';
+import { useHistory } from 'react-router-dom'
 
 function Home(props) {
+
+  const [cookies, setCookie, removeCookie]= useCookies(['jayjwt']);
+  const history=useHistory();
+
+  async function populateQuote() {
+  const req = await fetch('http://localhost:9002/jwt', {
+          method:'GET',
+    headers: {
+      'x-access-token': cookies.jayjwt,
+    }
+  })
+  
+  if(req.status === 201){
+      // alert("fine");
+      return;
+  }
+  else{
+      removeCookie('jayjwt');
+      history.push('/login')
+  }
+}
+
+  // Mynewpagetest
+  useEffect(() => {
+      const token =cookies.jayjwt;
+  
+  if (token !==undefined) {
+    const user = jwt.decode(token)
+    if (!user) {
+              removeCookie('jayjwt');
+      history.push('/login')
+    } else {
+      populateQuote()
+    }
+  }
+      else{
+          history.push('/login');
+      }
+}, [])
+
+
+
+
+
+
+  //jwt-end
+
   const query = new URLSearchParams(props.location.search);
 
   let job = query.get("q") || "";
@@ -74,7 +124,6 @@ function Home(props) {
         </Link>
         Hire From Here
       </div>
-      {console.log(jobs)}
 
       <div style={{ padding: "20px", fontWeight: "bolder" }}>
         Top jobs For you
