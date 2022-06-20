@@ -41,7 +41,7 @@ export const makeLoginRequest = ({ email, password }) => (dispatch) => {
   axios
     .post("http://localhost:9002/login", { "email": email, "password": password })
     .then((res) => {
-      console.log(res.headers);
+      
       if (res.data) {
         Cookies.set('jayjwt',res.data.token,{ expires: 1 });
         dispatch(loginSuccess(res.data.user)); //fix here

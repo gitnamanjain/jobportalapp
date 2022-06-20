@@ -52,7 +52,7 @@ export function CompanyBox({ logo, rating, name, handleClick, id }) {
             <StarIcon style={{ color: "#127C71" , paddingTop:"7px"}} />
           </Grid>
           <Grid item lg={6} md={6} sm={6} xs={6}>
-            4 Reviews
+            Reviews
           </Grid>
         </Grid>
       </Grid>

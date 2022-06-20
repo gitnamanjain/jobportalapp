@@ -55,6 +55,7 @@ export function Login() {
                   onChange={onPasswordChange}
                   placeholder="Password"
                   required
+                  minlength="6"
                 ></input>
                 <div
                   style={{

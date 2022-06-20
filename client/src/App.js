@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import "./App.css";
 
 function App() {
-  const isAuth = useSelector((state) => state.login.isAuth);
+  // const isAuth = useSelector((state) => state.login.isAuth);
   return (
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>

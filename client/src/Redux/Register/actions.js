@@ -45,9 +45,15 @@ const registerNewUser = ({ name, email, password }) => (dispatch) => {
       applied_job: {},
       my_reviews: {},
     })
-    .then((res) => dispatch(registerSuccess()));
-
-  alert("Register sucessfully  :) ");
+    .then((res) => {
+      if(res.data.message==="ALREADY_REGISTER"){
+        alert("Already Register into Our System")
+      }
+      else{
+        alert("Register sucessfully  :) ");
+        dispatch(registerSuccess())
+      }
+    });
 };
 
 

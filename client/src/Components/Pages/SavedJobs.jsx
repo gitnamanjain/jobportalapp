@@ -94,7 +94,7 @@ useEffect(() => {
     const user_id = mystate.user_id;
     // console.log(jobId)
     applied_job[jobId] = { ...saved_jobs[jobId] };
-    delete saved_jobs[jobId];
+    // delete saved_jobs[jobId];
     dispatch(makeApplyRequest({ user_id: user_id, saved_jobs, applied_job }));
     setOpen(false);
     forceUpdate();

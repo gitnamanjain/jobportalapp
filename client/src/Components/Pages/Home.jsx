@@ -61,11 +61,6 @@ function Home(props) {
 
 
 
-
-
-
-  //jwt-end
-
   const query = new URLSearchParams(props.location.search);
 
   let job = query.get("q") || "";

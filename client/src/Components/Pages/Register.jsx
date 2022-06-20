@@ -5,7 +5,7 @@ import { makeRegisterRequest } from "../../Redux/Register/actions";
 import MyAppbar from "../Layout/appbar/MyAppbar";
 import styles from "./Register.module.css";
 // import {motion} from "framer-motion";
-import {AnimatePresence, motion} from 'framer-motion/dist/framer-motion'
+import {AnimatePresence, motion} from 'framer-motion/dist/framer-motion';
 
 export function Register() {
   const isAuth = useSelector((state) => state.login.isAuth);
@@ -56,14 +56,16 @@ export function Register() {
                   value={name}
                   placeholder="Your Name"
                   onChange={onNameChange}
+                  required
                 ></input>
                 <input
-                  type="text"
+                  type="email"
                   name="email"
                   className={styles.input}
                   value={email}
                   placeholder="Your Email"
                   onChange={onEmailChange}
+                  required
                 ></input>
                 <input
                   type="password"
@@ -72,6 +74,8 @@ export function Register() {
                   value={password}
                   placeholder="Your Password"
                   onChange={onPasswordChange}
+                  required
+                  minlength="6"
                 ></input>
                 <button type="submit" className={styles.green_btn}>
                   Sign Up
