@@ -14,7 +14,10 @@ import "./css/companyReviews.style.css";
 import { useCookies } from 'react-cookie';
 import jwt from 'jsonwebtoken';
 import { logout } from "../../Redux/Login/actions.js";
-import {AnimatePresence, motion} from 'framer-motion/dist/framer-motion'
+import {AnimatePresence, motion} from 'framer-motion/dist/framer-motion';
+import LinearProgress from '@mui/material/LinearProgress';
+// import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box';
 
 
 
@@ -90,7 +93,7 @@ export function CompanyReviews() {
       maxWidth="xl"
       style={{ marginTop: "75px" }}
     >
-      <Bossbaby></Bossbaby>
+      <Bossbaby/>
       <Grid
         className="companiesHiring"
         item
@@ -124,6 +127,11 @@ export function CompanyReviews() {
             paddingRight: "20px",
           }}
         >
+          {(companies.length === 0) ? <>
+            <Box sx={{ width: '100%' }}>
+              <LinearProgress color="inherit"/>
+            </Box>
+          </> : <></>}
           {companies.map((item) => {
             return (
               <CompanyBox
