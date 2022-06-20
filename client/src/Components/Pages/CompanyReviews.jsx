@@ -14,6 +14,7 @@ import "./css/companyReviews.style.css";
 import { useCookies } from 'react-cookie';
 import jwt from 'jsonwebtoken';
 import { logout } from "../../Redux/Login/actions.js";
+import {AnimatePresence, motion} from 'framer-motion/dist/framer-motion'
 
 
 
@@ -83,6 +84,7 @@ export function CompanyReviews() {
   }, []);
 
   return (
+    <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} >
     <Container
       className="container"
       maxWidth="xl"
@@ -137,6 +139,7 @@ export function CompanyReviews() {
         </Grid>
       </Grid>
     </Container>
+    </motion.div>
   ) ;
 
 }

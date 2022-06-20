@@ -16,6 +16,7 @@ import {makeSaveJobRequest} from '../../Redux/SaveJob/actions';
 import "./css/displayjob.style.css";
 import CircularProgress from '@mui/material/CircularProgress';
 // import { axios } from 'axios';
+import {AnimatePresence, motion} from 'framer-motion/dist/framer-motion'
 
 
 
@@ -86,7 +87,7 @@ function DisplayJobs(props) {
     
 
     return (
-        <>
+        <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} >
         <div className="job_section" >
             {console.log(jobs)}
             <Box style={{transform:"scale(0.8) translateX(-12%)"}}>
@@ -157,7 +158,7 @@ function DisplayJobs(props) {
             }
             
         </div>
-        </>
+        </motion.div>
     );
     
 }

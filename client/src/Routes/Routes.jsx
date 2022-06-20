@@ -14,10 +14,13 @@ import PrivateRoute from "./PrivateRoute";
 import Homepage from "../Components/Layout/homepage/Homepage";
 import MyAppbar from "../Components/Layout/appbar/MyAppbar";
 import PostJOB from "../Components/Pages/PostJOB";
+// import {AnimatePresence} from "framer-motion";
+import {AnimatePresence, motion} from 'framer-motion/dist/framer-motion';
 
 function Routes(props) {
   return (
     <div>
+      <AnimatePresence exitBeforeEnter> 
       <Switch>
         <PrivateRoute exact path="/viewjobs" Component={Home} />
         <PrivateRoute exact path="/postjob" Component={PostJOB}/>
@@ -29,7 +32,7 @@ function Routes(props) {
           <Login />
         </Route>
         <Route exact path="/">
-          <MyAppbar></MyAppbar>
+          <MyAppbar/>
           <Homepage />
         </Route>
         <Route path="/register" exact>
@@ -39,6 +42,7 @@ function Routes(props) {
         <PrivateRoute path="/jobs" Component={DisplayJobs} />
         <PrivateRoute path="/reviews" exact Component={Review} />
       </Switch>
+      </AnimatePresence>
     </div>
   );
 }

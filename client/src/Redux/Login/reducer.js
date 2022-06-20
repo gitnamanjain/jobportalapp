@@ -36,14 +36,3 @@ export const loginReducer = (state=initState,{type,payload})=>{
     }
 }
 
-
-// export function saveTokenInLocalStorage(tokenDetails){
-//     localStorage.setItem('userDetails', JSON.stringify(tokenDetails));
-// }
-
-
-export function runLogoutTimer(dispatch , timer){
-    setTimeout(()=>{
-        dispatch(logout());
-    }, timer)
-}

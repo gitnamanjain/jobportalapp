@@ -4,6 +4,8 @@ import { Link, Redirect } from "react-router-dom";
 import { makeRegisterRequest } from "../../Redux/Register/actions";
 import MyAppbar from "../Layout/appbar/MyAppbar";
 import styles from "./Register.module.css";
+// import {motion} from "framer-motion";
+import {AnimatePresence, motion} from 'framer-motion/dist/framer-motion'
 
 export function Register() {
   const isAuth = useSelector((state) => state.login.isAuth);
@@ -31,7 +33,7 @@ export function Register() {
   };
 
   return (
-    <>
+    <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
       <MyAppbar />
       <div className={styles.mybox}>
         <div className={styles.signup_container}>
@@ -79,6 +81,6 @@ export function Register() {
           </div>
         </div>
       </div>
-    </>
+      </motion.div>
   ) ;
 }

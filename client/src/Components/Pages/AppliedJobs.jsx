@@ -17,6 +17,7 @@ import jwt from 'jsonwebtoken'
 import { useHistory} from 'react-router-dom';
 import { useEffect } from 'react';
 import { logout } from "../../Redux/Login/actions.js";
+import {AnimatePresence, motion} from 'framer-motion/dist/framer-motion'
 
 
 function AppliedJobs(props) {
@@ -95,6 +96,7 @@ function AppliedJobs(props) {
     }
     
     return (
+        <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} >
         <div className={styles.savedjobconatiner}>
                 <Box>
                     <Typography variant={'h5'} style={{fontSize:'40px',marginBottom:'20px'}}>
@@ -182,6 +184,7 @@ function AppliedJobs(props) {
                     </Box>
                 </Box>
         </div>
+        </motion.div>
     );
 }
 

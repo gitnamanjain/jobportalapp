@@ -7,6 +7,8 @@ import { makeLoginRequest } from "../../Redux/Login/actions";
 // import MyAppbar from "../Layout/appbar/MyAppbar";
 import styles from "./Login.module.css";
 import MyAppbar from './../Layout/appbar/MyAppbar';
+// import {motion} from "framer-motion";
+import {AnimatePresence, motion} from 'framer-motion/dist/framer-motion'
 
 export function Login() {
   const { isAuth, isLoading } = useSelector((state) => state.login);
@@ -28,7 +30,7 @@ export function Login() {
   };
 
   return (
-    <>
+    <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} >
     <MyAppbar/>
       <div className={styles.box}>
         <div className={styles.login_container}>
@@ -37,12 +39,13 @@ export function Login() {
               <form className={styles.form_container} onSubmit={handleSubmit}>
                 <p className={styles.text}>Login to Your Account</p>
                 <input
-                  type="text"
+                  type="email"
                   name="email"
                   className={styles.input}
                   value={email}
                   onChange={onEmailChange}
                   placeholder="Email"
+                  required
                 ></input>
                 <input
                   type="password"
@@ -51,6 +54,7 @@ export function Login() {
                   value={password}
                   onChange={onPasswordChange}
                   placeholder="Password"
+                  required
                 ></input>
                 <div
                   style={{
@@ -87,6 +91,6 @@ export function Login() {
           </div>
         </div>
       </div>
-    </>
+    </motion.div>
   ) ;
 }
