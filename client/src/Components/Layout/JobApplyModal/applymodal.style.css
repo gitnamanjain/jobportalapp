@@ -2,7 +2,7 @@
   box-sizing:border-box;
   width:30%;
   border-radius:10px; 
-  height: 80vh; 
+  height: auto; 
   background-color: white;
   outline:none;
   padding:40px;

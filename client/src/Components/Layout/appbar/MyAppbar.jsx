@@ -1,4 +1,6 @@
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
+import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
+import HomeIcon from '@mui/icons-material/Home';
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -35,13 +37,35 @@ export default function MyAppbar() {
               <Box className={styles.link}>
                 <Typography
                   sx={{ fontWeight: "bold" }}
-                  className={styles.typography}
+                  className={styles.icons }
                 >
                   <Link to="/">
+                    <HomeIcon
+                      fontSize="large"
+                      style={{ color: "#127c71" }}
+                    ></HomeIcon>
+                  </Link>
+                </Typography>
+                <Typography
+                  sx={{ fontWeight: "bold" }}
+                  className={styles.iconsmobile }
+                >
+                  <Link to="/viewjobs">
                     <BusinessCenterIcon
                       fontSize="large"
                       style={{ color: "#127c71" }}
                     ></BusinessCenterIcon>
+                  </Link>
+                </Typography>
+                <Typography
+                  sx={{ fontWeight: "bold" }}
+                  className={styles.iconsmobile }
+                >
+                  <Link to="/companies">
+                    <AssignmentTurnedInIcon
+                      fontSize="large"
+                      style={{ color: "#127c71" }}
+                    ></AssignmentTurnedInIcon>
                   </Link>
                 </Typography>
 

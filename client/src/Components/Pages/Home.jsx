@@ -125,7 +125,7 @@ function Home(props) {
       <div style={{ padding: "20px", fontWeight: "bolder" }}>
         Top jobs For you
       </div>
-      <Box style={{ display: "flex" }}>
+      <Box style={{ display: "flex", gap:"4px"}}>
         <Grid className="jobContainer" classes="fhhh" container>
           {jobs.map((job, index) => (
             <Grid
