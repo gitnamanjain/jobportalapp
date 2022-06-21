@@ -39,7 +39,7 @@ function SearchForm(props) {
         let data = loadData("recent") || []
         let str = job !== "" && location !== "" ? {category:"both" , query: `${job} - ${location}`} : job === "" && location !== "" ? {category:"location", query:`${location}`} : {category:"job",query:`${job}`}
 
-        if(data.length === 4){
+        if(data.length === 1){
             data.reverse()
             if(data.some(item=>item.category===str.category && item.query === str.query)){
                 data = data.filter(item=>item.category !== str.category || item.query !== str.query)
@@ -78,8 +78,7 @@ function SearchForm(props) {
         <div style={{width:"100%" , height:"90px"}}></div>
             { error ? <Box>Query is Empty</Box> : <></> }
             <form  onSubmit={handleSearch} className="searchForm" style={{width:"60%", marginLeft:"auto", marginRight:"auto"}}>
-                <Grid container spacing={1}>
-                    
+                <Grid container spacing={1}>  
                     <InputGrid setValue={setJob} value={job} label={'What?'} 
                     helperText={'Job, Job Position'} classes="classes"
                     options={job !== "" ?jobOptions:null}
@@ -90,17 +89,10 @@ function SearchForm(props) {
                     helperText='City, state, or pin code' classes="classes"
                     options={locationOptions} />
 
-
-                    <input type="text" value='a' style={{display:"none"}}/>
-
-
                     <Grid item lg={2} md={2} sm={2} xs={12} className="btn_Container">
                         <Button color={'primary'} variant='contained' type='submit' style={{height:"55px"}} >
                             Find Jobs
                         </Button>
-
-
-                        {/* change reset into submit then it will work properly */}
                     </Grid>
                 </Grid>
             </form>

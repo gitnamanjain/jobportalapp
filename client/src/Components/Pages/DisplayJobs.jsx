@@ -89,7 +89,6 @@ function DisplayJobs(props) {
     return (
         <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} >
         <div className="job_section" >
-            {console.log(jobs)}
             <Box style={{transform:"scale(0.8) translateX(-12%)"}}>
                 <SearchForm />
             </Box>
@@ -107,7 +106,7 @@ function DisplayJobs(props) {
             <Box className="greyText">
                 jobs in {location}
             </Box>
-            {ignored ? null : null}
+            {/* {ignored ? null : null} */}
             <Box className="sort_container">
               
             </Box>

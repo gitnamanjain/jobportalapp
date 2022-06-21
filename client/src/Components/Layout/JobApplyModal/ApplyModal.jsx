@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { styled } from '@mui/material/styles';
+// import { styled } from '@mui/material/styles';
 import Modal from '@mui/material/Modal';
 import { Grid, OutlinedInput } from '@mui/material';
 import UploadForm  from './UploadForm';
@@ -8,33 +8,13 @@ import { Button } from '@mui/material';
 import "./applymodal.style.css";
 
 
-// const PREFIX = 'ApplyModal';
-
-// const classes = {
-//   modal: `${PREFIX}-modal`,
-//   paper: `${PREFIX}-paper`,
-//   applyForm: `${PREFIX}-applyForm`,
-//   label: `${PREFIX}-label`
-// };
-
-// const Root = styled('div')((
-//   {
-//     theme
-//   }
-// ) => ({
-//   [`& .${classes.modal}`]: {
-    // display: 'flex',
-    // alignItems: 'center',
-    // justifyContent: 'center',
-//   },
-
-const modal={
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center'
-}
 
 
+// const modal={
+//     display: 'flex',
+//     alignItems: 'center',
+//     justifyContent: 'center'
+// }
 
 
 

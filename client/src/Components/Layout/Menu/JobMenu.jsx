@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled } from '@mui/material/styles';
+// import { styled } from '@mui/material/styles';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -13,17 +13,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { fetchSuccess } from '../../../Redux/Search/actions';
 
-// const PREFIX = 'JobMenu';
 
-// const classes = {
-//   paper: `${PREFIX}-paper`
-// };
-
-// const Root = styled('div')({
-//   [`& .${classes.paper}`]: {
-//     border: '1px solid #d3d4d5',
-//   },
-// });
 
 const StyledMenu = ((props) => (
   <Menu

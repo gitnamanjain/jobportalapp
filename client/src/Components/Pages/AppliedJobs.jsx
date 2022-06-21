@@ -88,8 +88,6 @@ function AppliedJobs(props) {
     const handleCancel=(key)=>{
         console.log(applied_job)
         delete applied_job[key];
-        console.log(applied_job)
-        console.log("logged user id"+ mystate.user_id);
         dispatch(makeApplyRequest({user_id:mystate.user_id,saved_jobs,applied_job}))
         setOpen(false)
         forceUpdate()
@@ -100,7 +98,7 @@ function AppliedJobs(props) {
         <div className={styles.savedjobconatiner}>
                 <Box>
                     <Typography variant={'h5'} style={{fontSize:'40px',marginBottom:'20px'}}>
-                        My Jobs
+                        My Jobs 
                     </Typography>
                     <ul style={{display:'flex',marginBottom:'20px'}}>
                         <NavLink to="/savedjobs" activeStyle={{
@@ -151,9 +149,7 @@ function AppliedJobs(props) {
                                             <Button className="applyButton" onClick={()=>handleOpen(key)} style={{height:"40px", width:"100px", border:"1px solid"}} >
                                                     Cancel {jobId  ? null : null} {ignored ? null : null}
                                             </Button>
-
                                             </Box>
-                                           
                                     </Box>
                                      <Dialog
                                      open={open}

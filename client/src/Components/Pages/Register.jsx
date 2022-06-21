@@ -6,9 +6,12 @@ import MyAppbar from "../Layout/appbar/MyAppbar";
 import styles from "./Register.module.css";
 // import {motion} from "framer-motion";
 import {AnimatePresence, motion} from 'framer-motion/dist/framer-motion';
+import { useHistory } from "react-router-dom";
 
 export function Register() {
-  const isAuth = useSelector((state) => state.login.isAuth);
+  // const isAuth = useSelector((state) => state.login.isAuth);
+
+  const history = useHistory();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -30,6 +33,7 @@ export function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(makeRegisterRequest({ name, email, password }));
+    history.push("/login");
   };
 
   return (

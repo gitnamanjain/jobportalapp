@@ -10,12 +10,12 @@ import { Link } from "react-router-dom";
 import styles from "./MyAppbar.module.css";
 import UserMenu from "./UserMenu";
 // import handleSearch from './../Forms/SearchForm/SearchForm';
-import SearchForm from "../Forms/SearchForm/SearchForm";
-import { useState } from "react";
-import { useEffect } from 'react';
-import { useHistory } from 'react-router-dom'
-import { useCookies } from 'react-cookie';
-import jwt from 'jsonwebtoken'
+// import SearchForm from "../Forms/SearchForm/SearchForm";
+// import { useState } from "react";
+// import { useEffect } from 'react';
+// import { useHistory } from 'react-router-dom'
+// import { useCookies } from 'react-cookie';
+// import jwt from 'jsonwebtoken'
 
 
 

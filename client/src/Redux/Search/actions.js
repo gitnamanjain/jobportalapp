@@ -65,6 +65,7 @@ export const dispatchCount = (payload) => (dispatch) => {
 
   axios(config).then((res) => {
     // console.log("data",res.data)
+    console.log("here me"+res.data.length);
     dispatch(setCount(res.data.length));
   });
 };
@@ -101,7 +102,10 @@ export const getSearchData = (job = "", location = "", page = "1") => (dispatch)
       } else if (job !== "") {
         url = `${base_url}/jobs?jobTitle_like=${job}`;
       }
-      axios({ config }).then((res) => {
+      axios({
+        method: "GET",
+        url: url,
+      }).then((res) => {
         dispatch(setCount(res.data.length));
       });
     })

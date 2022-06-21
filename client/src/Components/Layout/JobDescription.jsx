@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material';
 // import { styled } from '@mui/material/styles';
-import React , {useReducer,useState} from 'react';
+import React , {useState} from 'react';
 import { Button } from '@mui/material';
 import  Section  from './Section';
 import { useSelector,useDispatch } from 'react-redux';
@@ -13,7 +13,7 @@ const container ={
         position:'sticky',
         top:'90px',
         marginLeft:'20px',
-        marginRight:'-40px',
+        marginRight:'-30px',
         alignSelf: 'flex-start',
         border:'1px solid black',
         padding:'15px',
