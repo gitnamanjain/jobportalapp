@@ -13,7 +13,7 @@ const loginRequest = () => {
   };
 };
 
-const loginSuccess = (currentUser) => {
+export const loginSuccess = (currentUser) => {
   return {
     type: LOGIN_SUCCESS,
     payload: currentUser,

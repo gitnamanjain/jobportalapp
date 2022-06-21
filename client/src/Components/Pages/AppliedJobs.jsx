@@ -4,6 +4,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import axios from "axios";
 import { motion } from "framer-motion/dist/framer-motion";
 import jwt from "jsonwebtoken";
 import { useEffect, useReducer, useState } from "react";
@@ -11,7 +12,7 @@ import { useCookies } from "react-cookie";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import { makeApplyRequest } from "../../Redux/JobApply/actions";
-import { logout } from "../../Redux/Login/actions.js";
+import { loginSuccess, logout } from "../../Redux/Login/actions.js";
 import styles from "./Register.module.css";
 
 function AppliedJobs(props) {
@@ -26,7 +27,14 @@ function AppliedJobs(props) {
     });
 
     if (req.status === 201) {
-      // alert("fine");
+      axios
+        .get("http://localhost:9002/jwt", {
+          method: "GET",
+          headers: {
+            "x-access-token": cookies.jayjwt,
+          },
+        })
+        .then((res) => dispatch(loginSuccess(res.data.user)));
       return;
     } else {
       removeCookie("jayjwt");
@@ -103,7 +111,7 @@ function AppliedJobs(props) {
                 marginRight: "30px",
               }}
             >
-              <Button >Saved {jobKeys.length}</Button>
+              <Button>Saved {jobKeys.length}</Button>
             </NavLink>
             <NavLink
               to="/appliedjobs"
@@ -164,12 +172,12 @@ function AppliedJobs(props) {
                     </Box>
                     <Box style={{ display: "flex" }}>
                       <Button
-                        variant="contained" color="error"
+                        variant="contained"
+                        color="error"
                         onClick={() => handleOpen(key)}
                         style={{
                           height: "40px",
                           width: "100px",
-
                         }}
                       >
                         Cancel {jobId ? null : null} {ignored ? null : null}

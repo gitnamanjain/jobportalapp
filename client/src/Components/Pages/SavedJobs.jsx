@@ -3,7 +3,6 @@ import { motion } from "framer-motion/dist/framer-motion";
 import jwt from "jsonwebtoken";
 import { useEffect, useReducer, useState } from "react";
 import { useCookies } from "react-cookie";
-import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import { makeApplyRequest } from "../../Redux/JobApply/actions";
 import { makeSaveJobRequest } from "../../Redux/SaveJob/actions";
@@ -15,6 +14,7 @@ import { useEffect } from 'react';
 
 function SavedJobs(props) {
   const history = useHistory();
+
   const [cookies, setCookie, removeCookie] = useCookies(["jayjwt"]);
 
   async function populateQuote() {
@@ -24,8 +24,14 @@ function SavedJobs(props) {
         "x-access-token": cookies.jayjwt,
       },
     });
-
+    // console.log(req);
     if (req.status === 201) {
+      axios.get("http://localhost:9002/jwt", {
+        method: "GET",
+        headers: {
+          "x-access-token": cookies.jayjwt,
+        },
+      }).then(res=>dispatch(loginSuccess(res.data.user)));
       return;
     } else {
       removeCookie("jayjwt");
@@ -51,7 +57,9 @@ function SavedJobs(props) {
     }
   }, []);
 
-  const { saved_jobs, applied_job, id } = useSelector((state) => state.login.loggedUser);
+  const { saved_jobs, applied_job, id } = useSelector(
+    (state) => state.login.loggedUser
+  );
   const mystate = useSelector((state) => state.login.loggedUser);
   const jobKeys = Object.keys(saved_jobs).reverse();
   const applied = Object.keys(applied_job).reverse();
@@ -99,8 +107,9 @@ function SavedJobs(props) {
           <ul style={{ display: "flex", marginBottom: "20px" }}>
             <NavLink
               to="/savedjobs"
-              activeStyle={{color: "#127c71"}}
-              style={{fontSize: "25px",marginRight: "30px",}}>
+              activeStyle={{ color: "#127c71" }}
+              style={{ fontSize: "25px", marginRight: "30px" }}
+            >
               <Button variant="contained">Saved {jobKeys.length}</Button>
             </NavLink>
             <NavLink
@@ -109,7 +118,7 @@ function SavedJobs(props) {
                 fontSize: "25px",
               }}
             >
-              <Button >Applied {applied.length}</Button>
+              <Button>Applied {applied.length}</Button>
             </NavLink>
           </ul>
           {ignored ? null : null}
@@ -122,7 +131,7 @@ function SavedJobs(props) {
                     border: "1px solid #e6e6e6",
                     // borderRadius: "10px",
                     padding: "20px",
-                    marginBottom: "20px"
+                    marginBottom: "20px",
                   }}
                   key={key}
                 >
@@ -180,7 +189,13 @@ function SavedJobs(props) {
                       alignItems: "center",
                     }}
                   >
-                    <Button style={{minWidth:"32px"}}variant="contained" color="error">X</Button>
+                    <Button
+                      style={{ minWidth: "32px" }}
+                      variant="contained"
+                      color="error"
+                    >
+                      X
+                    </Button>
                   </Box>
                 </Box>
               );
