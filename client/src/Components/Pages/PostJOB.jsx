@@ -118,12 +118,12 @@ useEffect(() => {
   return (
     <>
     <div style={{width:"100%" , height:"80px"}}></div>
-    <div>
-            <Typography variant='h6' style={{padding:"20px", fontSize:"20px"}}>
+    <div style={{fontFamily:"Manrope, sans-serif", fontWeight:"bold", marginBottom:"30px"}}>
+            <Typography variant='h6' style={{padding:"20px", fontSize:"20px", textAlign:"center"}}>
                 Hire Candidate from here (Job post)
             </Typography>
 
-            <form onSubmit={handelPost} className="root" style={{width:'80%' , marginLeft:'auto',marginRight:'auto'}}>
+            <form onSubmit={handelPost} className="root" style={{width:'80%' , marginLeft:'auto',marginRight:'auto', display:"flex", flexDirection:"column",gap:"7px"}}>
 
                 <Grid item lg={12} md={12} sm={12} xs={12} >
                     <label >
@@ -237,7 +237,7 @@ useEffect(() => {
                 </Grid>
                 <Grid item lg={4} md={4} sm={4} xs={4}>
                     <FormControl variant="outlined" className="select_job_type">
-                        <label>
+                        <label style={{fontSize:"10px", marginTop:"4px"}}>
                             Education Level
                         </label>
                         <Select
