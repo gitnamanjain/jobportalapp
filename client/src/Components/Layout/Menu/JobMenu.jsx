@@ -99,7 +99,7 @@ const dispatch = useDispatch()
           <ListItemText primary="Save Job" />
         </MenuItem>
         }
-
+{/* 
         <MenuItem onClick={()=>{
                 handleClose();
                 removeFromList({jobkey,location,companyName,jobTitle})
@@ -108,13 +108,13 @@ const dispatch = useDispatch()
             <NotInterested fontSize="small" />
           </ListItemIcon>
           <ListItemText primary="Not Interseted" />
-        </MenuItem>
-        <MenuItem style={{backgroundColor: 'white',color:"black"}}>
+        </MenuItem> */}
+        {/* <MenuItem style={{backgroundColor: 'white',color:"black"}}>
           <ListItemIcon style={{display:'flex',justifyContent:'center'}}>
             <ErrorIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText primary="Is there a problem with the job" />
-        </MenuItem>
+        </MenuItem> */}
       </StyledMenu>
        
     </div>
