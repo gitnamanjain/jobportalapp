@@ -5,75 +5,124 @@ import { makeRegisterRequest } from "../../Redux/Register/actions";
 import MyAppbar from "../Layout/appbar/MyAppbar";
 import styles from "./Register.module.css";
 // import {motion} from "framer-motion";
-import {AnimatePresence, motion} from 'framer-motion/dist/framer-motion';
+import { AnimatePresence, motion } from "framer-motion/dist/framer-motion";
 import { useHistory } from "react-router-dom";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import { TextField } from "@mui/material";
+import { makeStyles } from "@material-ui/styles";
 
+const useStyles = makeStyles((theme) => ({
+  textField: {
+    border: "1px solid #b3b3b3",
+  },
+}));
 export function Register() {
+  const classes = useStyles();
+  const formik = useFormik({
+    initialValues: {
+      fullName: "",
+      email: "",
+      password: "",
+    },
+    validationSchema: Yup.object({
+      fullName: Yup.string().required("Name is required"),
+      email: Yup.string()
+        .email("Must be a valid email")
+        .max(255)
+        .required("Email is required"),
+      password: Yup.string()
+        .min(8, "Must be 8 Characters Long")
+        .required("Password is required"),
+    }),
+    onSubmit: (e) => {
+      const myname = e.fullName;
+      const email = e.email;
+      const password = e.password;
+      console.log(myname, email, password);
+      dispatch(makeRegisterRequest({ myname, email, password }));
+      history.push("/login");
+      handleSubmit();
+    },
+  });
   // const isAuth = useSelector((state) => state.login.isAuth);
 
   const history = useHistory();
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const dispatch = useDispatch();
 
-  const onNameChange = (e) => {
-    setName(e.target.value);
-  };
+  // const onNameChange = (e) => {
+  //   setName(e.target.value);
+  // };
 
-  const onEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
+  // const onEmailChange = (e) => {
+  //   setEmail(e.target.value);
+  // };
 
-  const onPasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
+  // const onPasswordChange = (e) => {
+  //   setPassword(e.target.value);
+  // };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(makeRegisterRequest({ name, email, password }));
-    history.push("/login");
+    // e.preventDefault();
   };
 
   return (
-    <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <MyAppbar />
       <div className={styles.mybox}>
         <div className={styles.signup_container}>
           <div className={styles.signup_form_container}>
-            
             <div className={styles.right}>
-              <form className={styles.form_container} onSubmit={handleSubmit}>
+              <form
+                className={styles.form_container}
+                onSubmit={formik.handleSubmit}
+              >
                 <h1>Create Account</h1>
-                <input
+                <TextField
                   type="text"
-                  name="name"
-                  className={styles.input}
-                  value={name}
-                  placeholder="Your Name"
-                  onChange={onNameChange}
-                  required
-                ></input>
-                <input
-                  type="email"
+                  variant="filled"
+                  label="Name"
+                  className={[classes.textField, styles.input]}
+                  // placeholder="Name"
+                  name="fullName"
+                  onChange={formik.handleChange}
+                  value={formik.values.fullName}
+                  error={
+                    formik.touched.fullName && Boolean(formik.errors.fullName)
+                  }
+                  helperText={formik.touched.fullName && formik.errors.fullName}
+                />
+                <TextField
+                  type="text"
+                  variant="filled"
+                  label="Email"
+                  className={[classes.textField, styles.input]}
+                  // placeholder="Email"
                   name="email"
-                  className={styles.input}
-                  value={email}
-                  placeholder="Your Email"
-                  onChange={onEmailChange}
-                  required
-                ></input>
-                <input
+                  value={formik.values.email}
+                  onChange={formik.handleChange}
+                  error={formik.touched.email && Boolean(formik.errors.email)}
+                  helperText={formik.touched.email && formik.errors.email}
+                />
+                <TextField
                   type="password"
+                  variant="filled"
+                  label="Password "
+                  className={[classes.textField, styles.input]}
+                  // placeholder="Password"
                   name="password"
-                  className={styles.input}
-                  value={password}
-                  placeholder="Your Password"
-                  onChange={onPasswordChange}
-                  required
-                  minlength="6"
-                ></input>
+                  value={formik.values.password}
+                  onChange={formik.handleChange}
+                  error={
+                    formik.touched.password && Boolean(formik.errors.password)
+                  }
+                  helperText={formik.touched.password && formik.errors.password}
+                />
                 <button type="submit" className={styles.green_btn}>
                   Sign Up
                 </button>
@@ -90,6 +139,6 @@ export function Register() {
           </div>
         </div>
       </div>
-      </motion.div>
-  ) ;
+    </motion.div>
+  );
 }
