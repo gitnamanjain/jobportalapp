@@ -85,6 +85,7 @@ export function Register() {
                 <h1>Create Account</h1>
                 <TextField
                   type="text"
+                  style={{ marginTop: "5px" }}
                   variant="filled"
                   label="Name"
                   className={[classes.textField, styles.input]}
@@ -101,6 +102,7 @@ export function Register() {
                   type="text"
                   variant="filled"
                   label="Email"
+                  style={{ marginTop: "5px" }}
                   className={[classes.textField, styles.input]}
                   // placeholder="Email"
                   name="email"
@@ -113,6 +115,7 @@ export function Register() {
                   type="password"
                   variant="filled"
                   label="Password "
+                  style={{ marginTop: "5px" }}
                   className={[classes.textField, styles.input]}
                   // placeholder="Password"
                   name="password"

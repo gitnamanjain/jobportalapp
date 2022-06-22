@@ -182,7 +182,7 @@ useEffect(() => {
                         Job Summary
                     </label>
 
-                    <TextareaAutosize value={snippet} onChange={(e)=>setSnippet(e.target.value)} aria-label="minimum height" minRows={6} style={{width:"100%",fontSize:'20px'}}  placeholder="" />
+                    <TextareaAutosize value={snippet} onChange={(e)=>setSnippet(e.target.value)} aria-label="minimum height" minRows={6} style={{width:"99.5%",fontSize:'20px'}}  placeholder="" />
 
                 </Grid>
 
