@@ -6,7 +6,9 @@
 .removeMargin{
     margin: 0;
 }
-
+.findJob{
+    height:55px; 
+}
 .classes{
     width: 500px;
     border: 1px solid grey;
@@ -47,3 +49,10 @@ btn_Container:single-button{
     position: absolute;
 
 }
+@media only screen and (max-width: 600px) {
+    .findJob{
+        margin:auto;
+        margin-top:10px;
+    }
+  }
+

@@ -8,11 +8,14 @@ import { motion} from 'framer-motion/dist/framer-motion';
 
 function Homepage() {
   return (
-    <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
-      <HeroSection />
-      <Cards />
-      <Footer></Footer>
-    </motion.div>
+    //<motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
+    //</motion.div>
+    <div>
+    <HeroSection />
+    <Cards />
+    <Footer/>
+    </div>  
+    
   );
 }
 

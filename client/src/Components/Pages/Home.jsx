@@ -16,6 +16,7 @@ import { useCookies } from 'react-cookie';
 import jwt from 'jsonwebtoken';
 import { useHistory } from 'react-router-dom'
 import { logout } from "../../Redux/Login/actions.js";
+import { borderBottom } from "@mui/system";
 
 function Home(props) {
 
@@ -112,12 +113,13 @@ function Home(props) {
     marginRight: "auto",
   };
 
+
   return (
     <div className="container" style={contain}>
       <SearchForm />
       <div className="linkContainer">
         <Link className="link" to="/postjob">
-          {`Employers Yours next job is - `}
+          {`Are you an Employer?  `}
         </Link>
         Hire From Here
       </div>

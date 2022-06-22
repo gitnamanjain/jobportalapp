@@ -97,7 +97,7 @@ function DisplayJobs(props) {
             <Box className="greyText">jobs in {location}</Box>
             {/* {ignored ? null : null} */}
             <Box className="sort_container"></Box>
-            <Box style={{ display: "flex" }}>
+            <Box style={{ display: "flex"}}>
               <Grid className="jobContainer" classes="fhhh" container>
                 {jobs.map((job, index) => (
                   <Grid

@@ -89,7 +89,7 @@ export function CompanyReviews() {
   return (
     <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} >
     <Container
-      className="container"
+      className="container1"
       maxWidth="xl"
       style={{ marginTop: "75px" }}
     >
@@ -124,7 +124,7 @@ export function CompanyReviews() {
             justifyContent:"center",
             // width: "1020px",
             gap: "",
-            paddingLeft: "30px",
+            paddingLeft: "20px",
             paddingRight: "20px",
           }}
         >

@@ -1,5 +1,6 @@
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
+import LoginIcon from '@mui/icons-material/Login';
 import HomeIcon from '@mui/icons-material/Home';
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -99,6 +100,12 @@ export default function MyAppbar() {
                   >
                     Login
                   </Typography>
+                  <Typography>
+                  <LoginIcon
+                  fontSize="large"
+                  style={{ color: "#127c71" }}
+                ></LoginIcon>
+                </Typography>
                 </Link>
               )}
             </Box>

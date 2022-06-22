@@ -90,7 +90,7 @@ function SearchForm(props) {
                     options={locationOptions} />
 
                     <Grid item lg={2} md={2} sm={2} xs={12} className="btn_Container">
-                        <Button color={'primary'} variant='contained' type='submit' style={{height:"55px"}} >
+                        <Button color={'primary'} variant='contained' type='submit' className="findJob" >
                             Find Jobs
                         </Button>
                     </Grid>
