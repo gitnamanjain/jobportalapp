@@ -121,7 +121,8 @@ export function CompanyReviews() {
         <Grid
           container
           style={{
-            width: "1020px",
+            justifyContent:"center",
+            // width: "1020px",
             gap: "",
             paddingLeft: "30px",
             paddingRight: "20px",
