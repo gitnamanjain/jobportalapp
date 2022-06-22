@@ -118,10 +118,11 @@ function Home(props) {
     <div className="container" style={contain}>
       <SearchForm />
       <div className="linkContainer">
-        <Link className="link" to="/postjob">
+        <Link className="link" to="/postjob" style={{borderBottom:"3px solid rgb(18, 124, 113)"}}>
           {`Are you an Employer?  `}
         </Link>
-        Hire From Here
+        <Link to="/postjob" style={{borderBottom:"3px solid rgb(18, 124, 113)"}}>Hire From Here</Link>
+        
       </div>
 
       <div style={{ padding: "20px", fontWeight: "bolder" }}>
