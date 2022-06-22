@@ -187,10 +187,11 @@ function SavedJobs(props) {
                       display: "flex",
                       justifyContent: "center",
                       alignItems: "center",
+                      marginLeft:"10px"
                     }}
                   >
                     <Button
-                      style={{ minWidth: "32px" }}
+                      style={{ minWidth: "32px", height:"40px" }}
                       variant="contained"
                       color="error"
                     >

@@ -134,8 +134,7 @@ function AppliedJobs(props) {
                   <Box
                     style={{
                       display: "flex",
-                      border: "1px solid black",
-                      borderRadius: "10px",
+                      border: "1px solid rgb(230, 230, 230",
                       padding: "20px",
                       marginBottom: "20px",
                     }}
